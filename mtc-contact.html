@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MTC | Contact Us - Request Proposal or Consultation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <meta name="description" content="Contact Macakod Training Consulting to discuss corporate training needs, schedule a consultation, or request a custom proposal for capacity building programs.">
+
+    <link rel="stylesheet" href="mtc-styles.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="nav-content">
+                <a href="mtc-index.html" class="logo">MTC <span>Consulting</span></a>
+                <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+                <nav>
+                    <a href="mtc-index.html">Home</a>
+                    <a href="mtc-services.html">Services & Programs</a>
+                    <a href="mtc-about.html">About MTC</a>
+                    <a href="mtc-gallery.html">Gallery & Resources</a>
+                    <a href="mtc-impact.html">Impact</a>
+                    <a href="mtc-contact.html" class="active">Contact Us</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="contact-section">
+            <div class="container">
+                <h1>Let's Discuss Your Team's Capacity Building Needs</h1>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto 50px; font-size: 1.1em; color: var(--color-dark);">
+                    Use the inquiry form below to schedule an initial consultation or request a custom proposal. We guarantee a response within one business day.
+                </p>
+
+                <div class="contact-grid">
+                    
+                    <div class="contact-form-container">
+                        <h2>Request a Custom Proposal</h2>
+                        <form id="contactForm">
+                            <input type="text" id="organization" placeholder="Organization/Company Name" required>
+                            <input type="text" id="name" placeholder="Your Full Name (Decision Maker)" required>
+                            <input type="email" id="email" placeholder="Work Email Address" required>
+                            <input type="tel" id="phone" placeholder="Phone Number (Optional but Recommended)">
+                            <textarea id="message" placeholder="Briefly describe your training area of interest (e.g., Leadership, Physical Training, Technical Skills) and the size of the team..." rows="6" required></textarea>
+                            <button type="submit" class="submit-button">Submit Proposal Request</button>
+                        </form>
+                        <p id="formResponse"></p>
+                    </div>
+
+                    <div class="contact-info">
+                        <h3>Direct Contact Information</h3>
+                        
+                        <div class="info-item">
+                            <span class="icon">📞</span>
+                            <div>
+                                <strong>Phone (Primary Contact):</strong>
+                                <a href="tel:08133071893">08133071893</a>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <span class="icon">📧</span>
+                            <div>
+                                <strong>Email for Inquiries:</strong>
+                                <a href="mailto:info@mtc.com">info@mtc.com</a>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <span class="icon">📍</span>
+                            <div>
+                                <strong>Mailing Address:</strong>
+                                <p>Macakod Training Consulting (MTC)<br>Lagos, Nigeria</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo-section">
+                <a href="mtc-index.html" class="logo">MTC <span>Consulting</span></a>
+                <p style="color: #AAA;">A results-driven partner for individuals and organizations seeking practical training solutions and sustainable performance improvement.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Site Links</h4>
+                <ul>
+                    <li><a href="mtc-services.html">Services & Programs</a></li>
+                    <li><a href="mtc-about.html">Meet Our Experts</a></li>
+                    <li><a href="mtc-gallery.html">Training Gallery</a></li>
+                    <li><a href="mtc-impact.html">Impact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Contact Details</h4>
+                <ul>
+                    <li>Email: <a href="mailto:info@mtc.com">info@mtc.com</a></li>
+                    <li>Phone: <a href="tel:08133071893">08133071893</a></li>
+                    <li><a href="mtc-contact.html">Request Proposal</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>MTC Insights</h4>
+                <p style="color: #999; font-size: 0.9em; margin-top: 10px;">Get our quarterly leadership brief.</p>
+                <form id="footerNewsletterForm">
+                    <input type="email" placeholder="Your Email" required>
+                    <button type="submit" class="cta-button">Sign Up</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="currentYear"></span> Macakod Training Consulting (A subsidiary of MEL) | All Rights Reserved. | <a href="#" style="color: var(--color-secondary);">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+
+    <script>
+        // Menu Toggle Logic (Reused)
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('open');
+        });
+
+        // Simple form handler (Simulates submission success)
+        document.getElementById("contactForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const name = document.getElementById("name").value;
+            document.getElementById("formResponse").innerHTML =
+                "<span style='color:var(--color-primary);'>✅ Thank you, " + name + ". Your proposal request has been received. We will respond within one business day.</span>";
+            
+            // Optionally clear the form after a short delay
+            setTimeout(() => {
+                document.getElementById("contactForm").reset();
+            }, 3000);
+        });
+    </script>
+
+    <a href="https://wa.me/2348133071893" class="whatsapp-float" target="_blank" title="Chat with MTC on WhatsApp">
+        <span style="font-size: 30px;">💬</span> 
+    </a>
+
+</body>
+</html>

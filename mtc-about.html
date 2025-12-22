@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MTC | About Us - Building Trust and Authority in Capacity Development</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <meta name="description" content="Learn about Macakod Training Consulting's mission, vision, and core values. Our firm draws from engineering, academic, and industry practice to deliver structured, results-driven training.">
+
+    <link rel="stylesheet" href="mtc-styles.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="nav-content">
+                <a href="mtc-index.html" class="logo">MTC <span>Consulting</span></a>
+                <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+                <nav>
+                    <a href="mtc-index.html">Home</a>
+                    <a href="mtc-services.html">Services & Programs</a>
+                    <a href="mtc-about.html" class="active">About MTC</a>
+                    <a href="mtc-gallery.html">Gallery & Resources</a>
+                    <a href="mtc-impact.html">Impact</a>
+                    <a href="mtc-contact.html">Contact Us</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        
+        <section id="about-intro">
+            <div class="container">
+                <h1>Strategic Partner in Capacity Building and Performance Growth</h1>
+                <p>
+                    Macakod Training Consulting (MTC), a proud subsidiary of <a href="#" class="parent-company-link">Macakod Energy Limited (MEL)</a>, is positioned at the intersection of technical expertise, leadership development, and practical skills facilitation. Drawing from strong roots in engineering, academia, and industry practice, we translate theory into measurable workforce effectiveness.
+                </p>
+                <a href="#trainer-profile" class="cta-button">Meet Our Lead Facilitator</a>
+            </div>
+        </section>
+
+        <section id="values">
+            <div class="container">
+                <h2>Our Commitment: Core Values That Drive Results</h2>
+
+                <div class="value-grid">
+                    
+                    <div class="value-card">
+                        <div class="value-icon">🎯</div>
+                        <h3>Discipline & Competence</h3>
+                        <p>We emphasize discipline, competence development, and practical application, particularly within demanding technical and operational environments.</p>
+                    </div>
+
+                    <div class="value-card">
+                        <div class="value-icon">💡</div>
+                        <h3>Evidence-Based Approach</h3>
+                        <p>Our consulting is grounded in evidence-based methods and real-world experience, ensuring our programs build resilient, skilled, and motivated teams.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">📈</div>
+                        <h3>Sustainable Impact</h3>
+                        <p>We are results-driven, focusing on sustainable performance improvement and enhancing employability and professional readiness.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        
+        <section id="trainer-profile">
+            <div class="container">
+                <h2>Our Expertise is Your Advantage</h2>
+                <p style="max-width: 800px; margin: 0 auto 50px; color: #555;">
+                    The MTC curriculum is developed and led by seasoned professionals who bring direct, high-level experience from engineering and industry practice to the training floor.
+                </p>
+
+                <div class="trainer-card">
+                    <img src="https://picsum.photos/id/403/300/300" alt="Lead Facilitator Akorede Joledo" loading="lazy">
+                    <div class="trainer-info">
+                        <h3>Akorede Joledo</h3>
+                        <span class="title">Lead Facilitator & Head of Consulting</span>
+                        <p>
+                            Akorede Joledo is the driving force behind MTC's practical, results-oriented training methodology. With a strong foundation in engineering, he specializes in translating complex theory into actionable skills for corporate teams and technical personnel. His focus areas include technical communication, leadership effectiveness, and structured physical training facilitation.
+                        </p>
+                        <ul class="affiliation-list">
+                            <li>Primary Contact for Development</li>
+                            <li>Specializes in Technical Communication, Leadership, and Physical Facilitation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo-section">
+                <a href="mtc-index.html" class="logo">MTC <span>Consulting</span></a>
+                <p style="color: #AAA;">A results-driven partner for individuals and organizations seeking practical training solutions and sustainable performance improvement.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Site Links</h4>
+                <ul>
+                    <li><a href="mtc-services.html">Services & Programs</a></li>
+                    <li><a href="mtc-about.html">Meet Our Experts</a></li>
+                    <li><a href="mtc-gallery.html">Training Gallery</a></li>
+                    <li><a href="mtc-impact.html">Impact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Contact Details</h4>
+                <ul>
+                    <li>Email: <a href="mailto:info@mtc.com">info@mtc.com</a></li>
+                    <li>Phone: <a href="tel:08133071893">08133071893</a></li>
+                    <li><a href="mtc-contact.html">Request Proposal</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>MTC Insights</h4>
+                <p style="color: #999; font-size: 0.9em; margin-top: 10px;">Get our quarterly leadership brief.</p>
+                <form id="footerNewsletterForm">
+                    <input type="email" placeholder="Your Email" required>
+                    <button type="submit" class="cta-button">Sign Up</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="currentYear"></span> Macakod Training Consulting (A subsidiary of MEL) | All Rights Reserved. | <a href="#" style="color: var(--color-secondary);">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+
+    <script>
+        // Menu Toggle Logic (Reused)
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('open');
+        });
+    </script>
+
+    <a href="https://wa.me/2348133071893" class="whatsapp-float" target="_blank" title="Chat with MTC on WhatsApp">
+        <span style="font-size: 30px;">💬</span> 
+    </a>
+
+</body>
+</html>
