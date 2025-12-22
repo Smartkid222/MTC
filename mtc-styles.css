@@ -538,12 +538,7 @@ footer {
     text-align: center;
 }
 
-/* Newsletter Signup */
-#newsletter-signup {
-    background: var(--color-light);
-    padding: 80px 0;
-    text-align: center;
-}
+/* Newsletter Signup - Responsive Fix */
 #newsletter-signup .container {
     max-width: 750px;
     padding: 50px;
@@ -551,27 +546,45 @@ footer {
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
+
 #newsletterForm {
     display: flex;
+    flex-direction: column;     /* Default: stacked on all sizes */
     gap: 15px;
     max-width: 550px;
     margin: 0 auto;
 }
+
 #newsletterEmail {
     flex-grow: 1;
     padding: 14px;
     border: 2px solid #DDD;
     border-radius: 8px;
     transition: border-color 0.3s, box-shadow 0.3s;
+    width: 100%;                /* Full width */
 }
-#newsletterEmail:focus {
-    border-color: var(--color-secondary);
-    box-shadow: 0 0 0 3px rgba(0, 174, 239, 0.15);
+
+#newsletterForm button {
+    align-self: center;         /* Center the button */
+    padding: 14px 40px;
+    width: auto;
 }
-#newsletterResponse {
-    margin-top: 20px;
-    font-weight: 700;
-    color: var(--color-secondary);
+
+/* On larger screens (tablets & up), optional: side-by-side if you want */
+@media (min-width: 768px) {
+    #newsletterForm {
+        flex-direction: row;    /* Side-by-side only on bigger screens */
+        align-items: stretch;
+    }
+    
+    #newsletterEmail {
+        flex: 1;
+    }
+    
+    #newsletterForm button {
+        align-self: stretch;
+        margin-left: 15px;
+    }
 }
 
 /* ====== PAGE-SPECIFIC STYLES (ABOUT: mtc-about.html) ====== */
