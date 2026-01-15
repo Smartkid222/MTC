@@ -1,544 +1,2242 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>MTC | Macakod Training Consulting - World-Class Capacity Building</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
-    <meta name="description" content="Macakod Training Consulting delivers practical, evidence-based training and consulting in leadership, technical skills, project management, and retreats for energy and corporate professionals.">
-    
-    <!-- KEEPING YOUR ORIGINAL STYLESHEET LINK -->
-    <link rel="stylesheet" href="mtc-styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <title>
+      MTC | Macakod Training Consulting - World-Class Capacity Building
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <meta
+      name="description"
+      content="Macakod Training Consulting delivers practical, evidence-based training and consulting in leadership, technical skills, project management, and retreats for energy and corporate professionals."
+    />
 
-    <!-- Minimal styles ONLY for the new social media icons (since they didn't exist before) -->
     <style>
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 15px;
-        }
-        .social-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 35px;
-            height: 35px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            transition: all 0.3s ease;
-        }
-        .social-icon:hover {
-            background: #003366; /* Matches your primary blue likely */
-            transform: translateY(-2px);
-        }
-        .social-icon svg {
-            width: 18px;
-            height: 18px;
-            fill: #555; /* Default grey text color */
-        }
-        .social-icon:hover svg {
-            fill: #fff;
-        }
-        /* Ensure the logo fits in the header without breaking layout */
-        header .logo img {
-            height: 60px; 
-            width: auto;
-        }
-    </style>
-</head>
-<body>
+      /* --- CSS VARIABLES & RESET --- */
+      :root {
+        --color-primary: #003366; /* Deep Corporate Blue */
+        --color-secondary: #e6b800; /* Gold/Accent */
+        --color-text: #2c3e50;
+        --color-light: #f8f9fa;
+        --color-gray-bg: #f4f6f8;
+        --color-white: #ffffff;
+        --font-main: "Roboto", sans-serif;
+        --transition-speed: 0.3s;
+        --shadow-card: 0 5px 15px rgba(0, 0, 0, 0.08);
+        --shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.12);
+      }
 
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: var(--font-main);
+        color: var(--color-text);
+        background-color: var(--color-white);
+        line-height: 1.7;
+        overflow-x: hidden;
+        font-weight: 400;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        transition: var(--transition-speed);
+      }
+      ul {
+        list-style: none;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+        object-fit: cover;
+      }
+      button {
+        cursor: pointer;
+        border: none;
+        font-family: inherit;
+        transition: var(--transition-speed);
+      }
+
+      /* --- UTILITIES --- */
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+      }
+      .text-center {
+        text-align: center;
+      }
+      .text-accent {
+        color: var(--color-secondary);
+      }
+      .section-padding {
+        padding: 80px 0;
+      }
+      .bg-light {
+        background-color: var(--color-light);
+      }
+      .bg-gray {
+        background-color: var(--color-gray-bg);
+      }
+
+      /* --- TYPOGRAPHY IMPROVEMENTS --- */
+      h1,
+      h2,
+      h3,
+      h4 {
+        color: var(--color-primary);
+        font-weight: 700;
+        margin-bottom: 1rem;
+        line-height: 1.3;
+      }
+      h1 {
+        font-size: 2.5rem;
+        letter-spacing: -0.5px;
+      }
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+      }
+      h3 {
+        font-size: 1.5rem;
+      }
+      p {
+        margin-bottom: 1rem;
+        font-size: 1.05rem;
+        color: #555;
+      }
+
+      /* --- BUTTONS --- */
+      .cta-button {
+        display: inline-block;
+        background: var(--color-secondary);
+        color: white;
+        padding: 14px 32px;
+        border-radius: 4px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 0.5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .cta-button:hover {
+        background: #d4a800;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+      .cta-button.outline {
+        background: transparent;
+        border: 2px solid white;
+        color: white;
+      }
+      .cta-button.outline:hover {
+        background: white;
+        color: var(--color-primary);
+      }
+
+      /* --- HEADER & NAV --- */
+      header {
+        background: white;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        padding: 15px 0;
+      }
+      .nav-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      /* Logo Adjustment */
+      header .logo img {
+        height: 80px; /* Increased size as requested */
+        width: auto;
+      }
+
+      nav {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+      }
+      nav a {
+        font-weight: 500;
+        font-size: 1rem;
+        color: var(--color-primary);
+        position: relative;
+      }
+      nav a:hover,
+      nav a.active {
+        color: var(--color-secondary);
+      }
+      nav a.active::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: var(--color-secondary);
+      }
+
+      .menu-toggle {
+        display: none;
+        font-size: 1.5rem;
+        background: none;
+        color: var(--color-primary);
+      }
+
+      /* --- SPA LOGIC --- */
+      .page-section {
+        display: none;
+        animation: fadeIn 0.5s ease-in-out;
+        min-height: 70vh;
+      }
+      .page-section.active-section {
+        display: block;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(15px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* --- GRIDS --- */
+      .grid-3 {
+        display: grid;
+        gap: 30px;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      }
+      .grid-4 {
+        display: grid;
+        gap: 30px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+      .grid-2 {
+        display: grid;
+        gap: 50px;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      }
+
+      /* --- CARDS --- */
+      .card {
+        background: white;
+        border-radius: 8px;
+        box-shadow: var(--shadow-card);
+        overflow: hidden;
+        transition: all 0.3s ease;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-hover);
+      }
+
+      .value-card {
+        padding: 40px 30px;
+        text-align: center;
+        border: 1px solid #eee;
+      }
+      .value-icon {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        color: var(--color-secondary);
+      }
+
+      .category-card {
+        position: relative;
+        height: 320px;
+      }
+      .category-card img {
+        width: 100%;
+        height: 100%;
+        transition: 0.5s;
+      }
+      .category-card:hover img {
+        transform: scale(1.05);
+      }
+      .category-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(
+          to top,
+          rgba(0, 51, 102, 0.95),
+          rgba(0, 51, 102, 0)
+        );
+        color: white;
+        padding: 30px 20px;
+      }
+
+      /* --- TESTIMONIALS --- */
+      .testimonial-card {
+        position: relative;
+        background: var(--color-light);
+        padding: 40px 30px;
+        border-radius: 8px;
+        border-left: 5px solid var(--color-secondary);
+      }
+      /* Circular Image Placeholder Logic */
+      .testimonial-photo {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        width: 60px;
+        height: 60px;
+        background: #ddd;
+        border-radius: 50%;
+        border: 3px solid white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+      .testimonial-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .testimonial-text {
+        font-style: italic;
+        margin-bottom: 20px;
+        color: #444;
+      }
+      .testimonial-author {
+        font-weight: 700;
+        color: var(--color-primary);
+        font-size: 1.1rem;
+      }
+      .testimonial-role {
+        display: block;
+        font-weight: 400;
+        font-size: 0.9rem;
+        color: #777;
+        font-style: normal;
+        margin-top: 5px;
+      }
+
+      /* --- MODERN ICONS (SVG Styling) --- */
+      .icon-box {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 20px;
+        color: var(--color-primary);
+      }
+      .icon-box svg {
+        width: 24px;
+        height: 24px;
+        stroke: currentColor;
+        fill: none;
+        stroke-width: 2;
+      }
+      .contact-details h3 {
+        margin-bottom: 25px;
+        border-bottom: 2px solid var(--color-secondary);
+        display: inline-block;
+        padding-bottom: 5px;
+      }
+
+      /* --- SOCIAL MEDIA ICONS --- */
+      .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+      }
+      .social-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 35px;
+        height: 35px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        transition: all 0.3s ease;
+      }
+      /* Footer specific override since bg is dark */
+      footer .social-icon {
+        background: rgba(255, 255, 255, 0.1);
+      }
+      footer .social-icon svg {
+        fill: #fff;
+      }
+      footer .social-icon:hover {
+        background: var(--color-secondary);
+        transform: translateY(-2px);
+      }
+      /* Body/Light Background override (if used elsewhere) */
+      .social-icon:not(footer .social-icon) svg {
+        fill: #555;
+      }
+      .social-icon:not(footer .social-icon):hover {
+        background: #003366;
+      }
+      .social-icon svg {
+        width: 18px;
+        height: 18px;
+      }
+
+      /* --- FORMS --- */
+      input,
+      textarea,
+      select {
+        width: 100%;
+        padding: 14px;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-family: inherit;
+        background: #fff;
+        transition: 0.3s;
+      }
+      input:focus,
+      textarea:focus {
+        border-color: var(--color-primary);
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.1);
+      }
+      .submit-btn {
+        width: 100%;
+        padding: 15px;
+        background: var(--color-primary);
+        color: white;
+        font-weight: 700;
+        font-size: 1rem;
+        border-radius: 4px;
+        text-transform: uppercase;
+      }
+      .submit-btn:hover {
+        background: #002244;
+      }
+
+      /* --- FOOTER --- */
+      footer {
+        background: #111;
+        color: #aaa;
+        padding: 70px 0 20px;
+        margin-top: 80px;
+      }
+      .footer-grid {
+        display: grid;
+        gap: 40px;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        margin-bottom: 50px;
+      }
+      .footer-brand {
+        color: white;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        display: block;
+      }
+      .footer-links h4 {
+        color: white;
+        margin-bottom: 20px;
+        font-size: 1.1rem;
+      }
+      .footer-links li {
+        margin-bottom: 12px;
+      }
+      .footer-links a:hover {
+        color: var(--color-secondary);
+        padding-left: 5px;
+      }
+      .copyright {
+        border-top: 1px solid #333;
+        padding-top: 20px;
+        text-align: center;
+        font-size: 0.9rem;
+      }
+
+      /* --- MODAL (For Article) --- */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 2000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        overflow-y: auto;
+      }
+      .modal-content {
+        background: white;
+        margin: 5% auto;
+        padding: 40px;
+        border-radius: 8px;
+        width: 90%;
+        max-width: 800px;
+        position: relative;
+        animation: slideUp 0.4s;
+      }
+      @keyframes slideUp {
+        from {
+          transform: translateY(50px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      .close-modal {
+        position: absolute;
+        top: 20px;
+        right: 25px;
+        font-size: 35px;
+        cursor: pointer;
+        color: #555;
+      }
+      .close-modal:hover {
+        color: var(--color-primary);
+      }
+
+      /* --- WHATSAPP FLOAT --- */
+      .whatsapp-float {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: #25d366;
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        z-index: 1500;
+        transition: transform 0.3s;
+      }
+      .whatsapp-float:hover {
+        transform: scale(1.1);
+      }
+
+      /* --- RESPONSIVE --- */
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: block;
+        }
+        nav {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background: white;
+          flex-direction: column;
+          padding: 20px;
+          gap: 15px;
+          box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+          display: none;
+        }
+        nav.open {
+          display: flex;
+        }
+        h1 {
+          font-size: 1.8rem;
+        }
+        .grid-2,
+        .grid-3,
+        .grid-4 {
+          grid-template-columns: 1fr;
+        }
+        .trainer-card {
+          flex-direction: column;
+        }
+        .testimonial-card {
+          padding-right: 20px;
+          padding-top: 30px;
+        } /* Adjust for photo */
+        .testimonial-photo {
+          width: 50px;
+          height: 50px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
     <header>
-        <div class="container">
-            <div class="nav-content">
-                <!-- UPDATED: Replaced text with Image Logo -->
-                <a href="mtc-index.html" class="logo">
-                    <img src="https://z-cdn-media.chatglm.cn/files/34bf2864-cba7-4d40-8141-9ca7978e7791.png?auth_key=1868156680-cb1107b7c574447db97a02366a0ecf97-0-6f13e25dee6cbc1d1f5d077a4cbfdea2" alt="Macakod Training Consulting Logo">
-                </a>
-                
-                <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
-                <nav>
-                    <a href="mtc-index.html" class="active">Home</a>
-                    <a href="mtc-services.html">Services & Programs</a>
-                    <a href="mtc-about.html">About MTC</a>
-                    <a href="mtc-gallery.html">Gallery & Resources</a>
-                    <a href="mtc-impact.html">Impact</a>
-                    <a href="mtc-contact.html">Contact Us</a>
-                </nav>
-            </div>
+      <div class="container">
+        <div class="nav-content">
+          <a href="#home" class="logo" onclick="navigateTo('home')">
+            <!-- Increased size handled via CSS -->
+            <img
+              src="https://z-cdn-media.chatglm.cn/files/34bf2864-cba7-4d40-8141-9ca7978e7791.png?auth_key=1868156680-cb1107b7c574447db97a02366a0ecf97-0-6f13e25dee6cbc1d1f5d077a4cbfdea2"
+              alt="Macakod Training Consulting Logo"
+            />
+          </a>
+
+          <button class="menu-toggle" aria-label="Toggle navigation">
+            &#9776;
+          </button>
+          <nav id="main-nav">
+            <a href="#home" onclick="navigateTo('home')" class="active">Home</a>
+            <a href="#services" onclick="navigateTo('services')"
+              >Services & Programs</a
+            >
+            <a href="#about" onclick="navigateTo('about')">About MTC</a>
+            <a href="#gallery" onclick="navigateTo('gallery')"
+              >Gallery & Resources</a
+            >
+            <a href="#impact" onclick="navigateTo('impact')">Impact</a>
+            <a href="#contact" onclick="navigateTo('contact')">Contact Us</a>
+          </nav>
         </div>
+      </div>
     </header>
 
     <main>
-        <section id="hero">
-            <div class="hero-content">
-                <h1>Practical, Results-Driven Training for <span class="text-accent">High-Performing Teams</span></h1>
-                <p>Macakod Training & Consulting is a capacity-building and professional development outfit positioned at the intersection of technical expertise, leadership development, and practical skills facilitation. We deliver structured, outcome-focused training that translates theory into measurable performance improvement.</p>
-                <a href="javascript:void(0);" onclick="openModal()" class="cta-button">Request a Training Proposal</a>
-                <a href="mtc-contact.html" class="cta-button" style="background: transparent; border: 2px solid white; margin-left: 20px;">Book a Consultation</a>
+      <!-- ================== HOME PAGE ================== -->
+      <section id="home" class="page-section active-section">
+        <!-- Hero -->
+        <section
+          id="hero"
+          style="
+            background: linear-gradient(
+                rgba(0, 51, 102, 0.85),
+                rgba(0, 51, 102, 0.75)
+              ),
+              url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+          "
+        >
+          <div class="container">
+            <h1 style="color: white; margin-bottom: 25px">
+              Practical, Results-Driven Training for
+              <span class="text-accent">High-Performing Teams</span>
+            </h1>
+            <p
+              style="
+                color: rgba(255, 255, 255, 0.9);
+                max-width: 800px;
+                margin: 0 auto 40px;
+                font-size: 1.15rem;
+              "
+            >
+              Macakod Training & Consulting is a capacity-building and
+              professional development outfit positioned at the intersection of
+              technical expertise, leadership development, and practical skills
+              facilitation. We deliver structured, outcome-focused training that
+              translates theory into measurable performance improvement.
+            </p>
+            <div
+              style="
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              "
+            >
+              <button onclick="openModal()" class="cta-button">
+                Request a Training Proposal
+              </button>
+              <a
+                href="#contact"
+                onclick="navigateTo('contact')"
+                class="cta-button outline"
+                >Book a Consultation</a
+              >
             </div>
-        </section>
-        
-        <section id="value-proposition">
-            <div class="container">
-                <h2>Why Choose MTC?</h2>
-                <div class="value-grid">
-                    <div class="value-card">
-                        <h3>Practical Skills Facilitation</h3>
-                        <p>We translate theory into immediate practice through simulations and hands-on workshops for measurable competence development.</p>
-                    </div>
-                    <div class="value-card">
-                        <h3>Evidence-Based Consulting</h3>
-                        <p>Grounded in engineering, academia, and industry experience with proven methodologies.</p>
-                    </div>
-                    <div class="value-card">
-                        <h3>Holistic Performance Focus</h3>
-                        <p>Building resilient teams through integrated leadership, technical, and professional development.</p>
-                    </div>
-                    <div class="value-card">
-                        <h3>Results-Driven Outcomes</h3>
-                        <p>We focus on sustainable performance improvement, enhanced productivity, and real organizational impact.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="container" style="padding: 80px 0;">
-            <h2 style="text-align:center;">Our Program Categories</h2>
-            <div class="category-grid">
-                <div class="category-card">
-                    <img src="https://www.womenlifthealth.org/wp-content/uploads/2024/11/LJ-Flow-NA-2023-Nigeria.jpg" alt="Leadership development seminar with diverse professionals">
-                    <div class="category-overlay">
-                        <h3>Leadership & Professional Effectiveness</h3>
-                        <p>Build resilient leaders and teams</p>
-                        <a href="mtc-services.html#leadership" class="cta-button" style="background: var(--color-secondary); margin-top: 15px;">Explore Programs →</a>
-                    </div>
-                </div>
-
-                <div class="category-card">
-                    <img src="https://petroedgeasia.net/wp-content/uploads/2024/06/oil-and-gas-careers-1024x681.jpg" alt="Technical training in oil and gas energy sector">
-                    <div class="category-overlay">
-                        <h3>Technical & Professional Skills</h3>
-                        <p>Hands-on engineering and operational competence</p>
-                        <a href="mtc-services.html#technical" class="cta-button" style="background: var(--color-secondary); margin-top: 15px;">Explore Programs →</a>
-                    </div>
-                </div>
-
-                <div class="category-card">
-                    <img src="https://letsgrowleaders.com/wp-content/uploads/2024/09/team-retreat-SynergySprint-e1725307004723.jpg" alt="Corporate retreat and team building seminar">
-                    <div class="category-overlay">
-                        <h3>Retreats, Workshops & Seminars</h3>
-                        <p>Strategic facilitation for alignment and innovation</p>
-                        <a href="mtc-services.html#retreats" class="cta-button" style="background: var(--color-secondary); margin-top: 15px;">Explore Programs →</a>
-                    </div>
-                </div>
-
-                <div class="category-card">
-                    <img src="https://phoenixtrainingcenter.com/assets/images/courses/training-in-project-management-professional-pmp-certification-course.jpeg" alt="Project management training workshop">
-                    <div class="category-overlay">
-                        <h3>Project Management & Development</h3>
-                        <p>Master planning, execution, and delivery</p>
-                        <a href="mtc-services.html#project" class="cta-button" style="background: var(--color-secondary); margin-top: 15px;">Explore Programs →</a>
-                    </div>
-                </div>
-            </div>
+          </div>
         </section>
 
-        <section style="background: var(--color-gray-bg); padding: 100px 0;">
-            <div class="container">
-                <h2 style="text-align:center;">Training Formats</h2>
-                <div class="formats-grid">
-                    <div class="format-card">
-                        <img src="https://cdn.guardian.ng/wp-content/uploads/2015/03/IMG-20240303-WA0001.jpg" alt="In-person classroom training">
-                        <h3>In-Person Training</h3>
-                        <p>Immersive classroom sessions in strategic locations across Nigeria and internationally.</p>
-                    </div>
-                    <div class="format-card">
-                        <img src="https://opportunitydesk.org/wp-content/uploads/2025/05/ASIF-Campus-Enterprise-Leadership-Program-CELP-2025-for-Nigerian-Students-768x427.png" alt="Virtual online live training">
-                        <h3>Virtual / Live Online</h3>
-                        <p>Interactive online sessions with real-time facilitation and global access.</p>
-                    </div>
-                    <div class="format-card">
-                        <img src="https://rmi.org/wp-content/uploads/2025/07/eta-global-women-in-clean-energy.jpg" alt="In-house custom corporate training">
-                        <h3>In-House / Custom</h3>
-                        <p>Tailored programs delivered at your premises or designed specifically for your organization.</p>
-                    </div>
-                </div>
+        <!-- Value Prop -->
+        <section class="section-padding">
+          <div class="container">
+            <h2>Why Choose MTC?</h2>
+            <div class="grid-3">
+              <div class="card value-card">
+                <div class="value-icon">🎯</div>
+                <h3>Practical Skills Facilitation</h3>
+                <p>
+                  We translate theory into immediate practice through
+                  simulations and hands-on workshops for measurable competence
+                  development.
+                </p>
+              </div>
+              <div class="card value-card">
+                <div class="value-icon">📊</div>
+                <h3>Evidence-Based Consulting</h3>
+                <p>
+                  Grounded in engineering, academia, and industry experience
+                  with proven methodologies.
+                </p>
+              </div>
+              <div class="card value-card">
+                <div class="value-icon">🤝</div>
+                <h3>Holistic Performance Focus</h3>
+                <p>
+                  Building resilient teams through integrated leadership,
+                  technical, and professional development.
+                </p>
+              </div>
             </div>
+          </div>
         </section>
 
-        <section style="padding: 100px 0; background: var(--color-light);">
-            <div class="container">
-                <h2 style="text-align:center; margin-bottom: 20px;">Explore Training Courses by Venue</h2>
-                <p style="text-align:center; max-width: 800px; margin: 0 auto 60px; font-size: 1.2em; color: #555;">
-                    We deliver in-person training in strategic locations across Nigeria, Africa, and internationally – ensuring accessibility and world-class facilities.
+        <!-- Program Categories -->
+        <section class="section-padding bg-light">
+          <div class="container">
+            <h2>Our Program Categories</h2>
+            <div class="grid-4">
+              <div class="card category-card">
+                <img
+                  src="https://www.womenlifthealth.org/wp-content/uploads/2024/11/LJ-Flow-NA-2023-Nigeria.jpg"
+                  alt="Leadership"
+                />
+                <div class="category-overlay">
+                  <h3>Leadership & Professional Effectiveness</h3>
+                  <a
+                    href="#services"
+                    onclick="navigateTo('services')"
+                    class="cta-button"
+                    style="margin-top: 10px; font-size: 0.75rem"
+                    >Explore Programs</a
+                  >
+                </div>
+              </div>
+              <div class="card category-card">
+                <img
+                  src="https://petroedgeasia.net/wp-content/uploads/2024/06/oil-and-gas-careers-1024x681.jpg"
+                  alt="Technical"
+                />
+                <div class="category-overlay">
+                  <h3>Technical & Professional Skills</h3>
+                  <a
+                    href="#services"
+                    onclick="navigateTo('services')"
+                    class="cta-button"
+                    style="margin-top: 10px; font-size: 0.75rem"
+                    >Explore Programs</a
+                  >
+                </div>
+              </div>
+              <div class="card category-card">
+                <img
+                  src="https://letsgrowleaders.com/wp-content/uploads/2024/09/team-retreat-SynergySprint-e1725307004723.jpg"
+                  alt="Retreats"
+                />
+                <div class="category-overlay">
+                  <h3>Retreats, Workshops & Seminars</h3>
+                  <a
+                    href="#services"
+                    onclick="navigateTo('services')"
+                    class="cta-button"
+                    style="margin-top: 10px; font-size: 0.75rem"
+                    >Explore Programs</a
+                  >
+                </div>
+              </div>
+              <div class="card category-card">
+                <img
+                  src="https://phoenixtrainingcenter.com/assets/images/courses/training-in-project-management-professional-pmp-certification-course.jpeg"
+                  alt="Project Management"
+                />
+                <div class="category-overlay">
+                  <h3>Project Management & Development</h3>
+                  <a
+                    href="#services"
+                    onclick="navigateTo('services')"
+                    class="cta-button"
+                    style="margin-top: 10px; font-size: 0.75rem"
+                    >Explore Programs</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Training Modes (Renamed) -->
+        <section class="section-padding">
+          <div class="container">
+            <h2>Training Modes</h2>
+            <div class="grid-3">
+              <div class="card">
+                <img
+                  src="https://cdn.guardian.ng/wp-content/uploads/2015/03/IMG-20240303-WA0001.jpg"
+                  alt="In-person"
+                  style="height: 200px"
+                />
+                <div style="padding: 25px">
+                  <h3 style="font-size: 1.3rem; margin-bottom: 10px">
+                    In-Person / Onsite Training
+                  </h3>
+                  <p>
+                    Immersive classroom sessions in strategic locations across
+                    Nigeria and internationally.
+                  </p>
+                </div>
+              </div>
+              <div class="card">
+                <img
+                  src="https://opportunitydesk.org/wp-content/uploads/2025/05/ASIF-Campus-Enterprise-Leadership-Program-CELP-2025-for-Nigerian-Students-768x427.png"
+                  alt="Virtual"
+                  style="height: 200px"
+                />
+                <div style="padding: 25px">
+                  <h3 style="font-size: 1.3rem; margin-bottom: 10px">
+                    Virtual / Live Online Training
+                  </h3>
+                  <p>
+                    Interactive online sessions with real-time facilitation and
+                    global access. (Informational Only)
+                  </p>
+                </div>
+              </div>
+              <div class="card">
+                <img
+                  src="https://rmi.org/wp-content/uploads/2025/07/eta-global-women-in-clean-energy.jpg"
+                  alt="In-house"
+                  style="height: 200px"
+                />
+                <div style="padding: 25px">
+                  <h3 style="font-size: 1.3rem; margin-bottom: 10px">
+                    In-House / Custom
+                  </h3>
+                  <p>
+                    Tailored programs delivered at your premises or designed
+                    specifically for your organization.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Venues (PDF Links) -->
+        <section class="section-padding bg-gray">
+          <div class="container">
+            <h2>Explore Training Courses by Venue</h2>
+            <p class="text-center" style="margin-bottom: 40px">
+              Download our detailed course brochures for each location.
+            </p>
+            <div class="grid-3">
+              <!-- Note: href="#" acts as a placeholder for the actual PDF download -->
+              <div class="card category-card">
+                <img
+                  src="https://australgroup.com/wp-content/uploads/2023/03/dubai-montagem.png"
+                  alt="Lagos"
+                />
+                <div class="category-overlay">
+                  <h3>Lagos, Nigeria 🇳🇬</h3>
+                  <a
+                    href="documents/lagos-courses.pdf"
+                    target="_blank"
+                    class="cta-button"
+                    style="
+                      background: #fff;
+                      color: var(--color-primary);
+                      margin-top: 10px;
+                      font-size: 0.75rem;
+                    "
+                    >Download PDF</a
+                  >
+                </div>
+              </div>
+              <div class="card category-card">
+                <img
+                  src="https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=289531393578772"
+                  alt="Abuja"
+                />
+                <div class="category-overlay">
+                  <h3>Abuja, Nigeria 🇳🇬</h3>
+                  <a
+                    href="documents/abuja-courses.pdf"
+                    target="_blank"
+                    class="cta-button"
+                    style="
+                      background: #fff;
+                      color: var(--color-primary);
+                      margin-top: 10px;
+                      font-size: 0.75rem;
+                    "
+                    >Download PDF</a
+                  >
+                </div>
+              </div>
+              <div class="card category-card">
+                <img
+                  src="https://cms.brightsun.co.uk/uploads/18-11-2024-06-08Dubai-blog.webp"
+                  alt="Accra"
+                />
+                <div class="category-overlay">
+                  <h3>Accra, Ghana 🇬🇭</h3>
+                  <a
+                    href="documents/accra-courses.pdf"
+                    target="_blank"
+                    class="cta-button"
+                    style="
+                      background: #fff;
+                      color: var(--color-primary);
+                      margin-top: 10px;
+                      font-size: 0.75rem;
+                    "
+                    >Download PDF</a
+                  >
+                </div>
+              </div>
+              <div class="card category-card">
+                <img
+                  src="https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=410687321868077"
+                  alt="Nairobi"
+                />
+                <div class="category-overlay">
+                  <h3>Nairobi, Kenya 🇰🇪</h3>
+                  <a
+                    href="documents/nairobi-courses.pdf"
+                    target="_blank"
+                    class="cta-button"
+                    style="
+                      background: #fff;
+                      color: var(--color-primary);
+                      margin-top: 10px;
+                      font-size: 0.75rem;
+                    "
+                    >Download PDF</a
+                  >
+                </div>
+              </div>
+              <div class="card category-card">
+                <img
+                  src="https://aztechtraining.com/wp-content/uploads/2021/04/Doha-Banner.jpg"
+                  alt="Dubai"
+                />
+                <div class="category-overlay">
+                  <h3>Dubai, UAE 🇦🇪</h3>
+                  <a
+                    href="documents/dubai-courses.pdf"
+                    target="_blank"
+                    class="cta-button"
+                    style="
+                      background: #fff;
+                      color: var(--color-primary);
+                      margin-top: 10px;
+                      font-size: 0.75rem;
+                    "
+                    >Download PDF</a
+                  >
+                </div>
+              </div>
+              <div class="card category-card">
+                <img
+                  src="https://content.skyscnr.com/media/5c6c5f06-13b5-4ebd-8c0d-7aaa41ffd7fd/image-22453.jpg"
+                  alt="London"
+                />
+                <div class="category-overlay">
+                  <h3>London, UK 🇬🇧</h3>
+                  <a
+                    href="documents/london-courses.pdf"
+                    target="_blank"
+                    class="cta-button"
+                    style="
+                      background: #fff;
+                      color: var(--color-primary);
+                      margin-top: 10px;
+                      font-size: 0.75rem;
+                    "
+                    >Download PDF</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Impact (Home) -->
+        <section class="section-padding">
+          <div class="container">
+            <h2 class="text-center">Measured Impact: Client Voices</h2>
+            <div class="grid-3">
+              <div class="testimonial-card">
+                <div class="testimonial-photo">
+                  <img src="https://picsum.photos/id/64/100/100" alt="Client" />
+                </div>
+                <div class="testimonial-text">
+                  “Macakod Training Consulting delivered a highly structured and
+                  practical training program that significantly improved our
+                  team’s discipline, collaboration, and performance.”
+                </div>
+                <div>
+                  <div class="testimonial-author">Engr. David Adu</div>
+                  <span class="testimonial-role"
+                    >Technical Director, Phantom Engineering Consult</span
+                  >
+                </div>
+              </div>
+              <div class="testimonial-card">
+                <div class="testimonial-photo">
+                  <img src="https://picsum.photos/id/65/100/100" alt="Client" />
+                </div>
+                <div class="testimonial-text">
+                  “MTC’s leadership and capacity-building sessions were
+                  impactful and well-organized... The practical approach sets
+                  MTC apart.”
+                </div>
+                <div>
+                  <div class="testimonial-author">Engr. Adebayo Oyewole</div>
+                  <span class="testimonial-role"
+                    >JJ Westerner Construction</span
+                  >
+                </div>
+              </div>
+              <div class="testimonial-card">
+                <div class="testimonial-photo">
+                  <img src="https://picsum.photos/id/66/100/100" alt="Client" />
+                </div>
+                <div class="testimonial-text">
+                  “Macakod Training Consulting provided an excellent training
+                  experience for our staff and students. We highly recommend
+                  MTC.”
+                </div>
+                <div>
+                  <div class="testimonial-author">Prof. David Orodu</div>
+                  <span class="testimonial-role"
+                    >MD, KEOT Synergy Nigeria Limited</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Accreditations (Expanded) -->
+        <section class="section-padding bg-light">
+          <div class="container text-center">
+            <h2>Accreditations & Professional Certifications</h2>
+            <p style="margin-bottom: 40px">
+              Our programs are aligned with global standards and contribute to
+              continuing professional development (CPD) credits.
+            </p>
+            <div class="grid-4">
+              <!-- Placeholders for expansion -->
+              <div
+                class="card"
+                style="
+                  padding: 20px;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  height: 120px;
+                "
+              >
+                <img
+                  src="https://aigproexcellence.com/wp-content/uploads/2025/02/11-1024x753.png"
+                  alt="Cert 1"
+                  style="max-height: 80px"
+                />
+              </div>
+              <div
+                class="card"
+                style="
+                  padding: 20px;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  height: 120px;
+                "
+              >
+                <img
+                  src="https://www.alphamarineservicesltd.com/wp-content/uploads/2025/02/CPD-recognised-1024x585.png"
+                  alt="Cert 2"
+                  style="max-height: 80px"
+                />
+              </div>
+              <div
+                class="card"
+                style="
+                  padding: 20px;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  height: 120px;
+                "
+              >
+                <img
+                  src="https://aigproexcellence.com/wp-content/uploads/2025/07/Business-Case.png"
+                  alt="Cert 3"
+                  style="max-height: 80px"
+                />
+              </div>
+              <div
+                class="card"
+                style="
+                  padding: 20px;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  height: 120px;
+                "
+              >
+                <img
+                  src="https://aigproexcellence.com/wp-content/uploads/2021/08/2_AIGPE-Yellow-Belt-Digital-Badge_Certifications-1024x753.png"
+                  alt="Cert 4"
+                  style="max-height: 80px"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- ================== ABOUT PAGE ================== -->
+      <section id="about" class="page-section">
+        <section class="section-padding bg-light">
+          <div
+            class="container text-center"
+            style="max-width: 900px; margin: 0 auto"
+          >
+            <!-- UPDATED HEADLINE EXACTLY AS REQUESTED -->
+            <h1
+              style="margin-bottom: 30px; font-size: 2.2rem; line-height: 1.4"
+            >
+              Macakod Training Consulting (MTC), a proud subsidiary of Macakod
+              Energy Limited (MEL) – RC 1025569, is positioned at the
+              intersection of technical expertise, leadership development, and
+              practical skills facilitation. Drawing from strong roots in
+              engineering, academia, and industry practice, we translate theory
+              into measurable workforce effectiveness.
+            </h1>
+            <a href="#trainer-profile" class="cta-button"
+              >Meet Our Lead Facilitator</a
+            >
+          </div>
+        </section>
+
+        <section class="section-padding">
+          <div class="container">
+            <h2 class="text-center">Our Commitment: Core Values</h2>
+            <div class="grid-3">
+              <div class="card value-card">
+                <h3 style="color: var(--color-primary)">
+                  Discipline & Competence
+                </h3>
+                <p>
+                  We emphasize discipline, competence development, and practical
+                  application, particularly within demanding technical and
+                  operational environments.
+                </p>
+              </div>
+              <div class="card value-card">
+                <h3 style="color: var(--color-primary)">
+                  Evidence-Based Approach
+                </h3>
+                <p>
+                  Our consulting is grounded in evidence-based methods and
+                  real-world experience, ensuring our programs build resilient,
+                  skilled, and motivated teams.
+                </p>
+              </div>
+              <div class="card value-card">
+                <h3 style="color: var(--color-primary)">Sustainable Impact</h3>
+                <p>
+                  We are results-driven, focusing on sustainable performance
+                  improvement and enhancing employability and professional
+                  readiness.
+                </p>
+              </div>
+            </div>
+
+            <!-- BOLD CORE VALUES LIST -->
+            <div style="margin-top: 60px; text-align: center">
+              <h3 style="margin-bottom: 30px">Our Core Values</h3>
+              <div
+                style="
+                  display: flex;
+                  flex-wrap: wrap;
+                  justify-content: center;
+                  gap: 20px;
+                "
+              >
+                <strong
+                  style="
+                    background: var(--color-light);
+                    padding: 10px 20px;
+                    border-radius: 30px;
+                    color: var(--color-primary);
+                  "
+                  >Professionalism</strong
+                >
+                <strong
+                  style="
+                    background: var(--color-light);
+                    padding: 10px 20px;
+                    border-radius: 30px;
+                    color: var(--color-primary);
+                  "
+                  >Excellence</strong
+                >
+                <strong
+                  style="
+                    background: var(--color-light);
+                    padding: 10px 20px;
+                    border-radius: 30px;
+                    color: var(--color-primary);
+                  "
+                  >Integrity</strong
+                >
+                <strong
+                  style="
+                    background: var(--color-light);
+                    padding: 10px 20px;
+                    border-radius: 30px;
+                    color: var(--color-primary);
+                  "
+                  >Discipline</strong
+                >
+                <strong
+                  style="
+                    background: var(--color-light);
+                    padding: 10px 20px;
+                    border-radius: 30px;
+                    color: var(--color-primary);
+                  "
+                  >Impact</strong
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="trainer-profile" class="section-padding bg-gray">
+          <div class="container">
+            <div
+              style="
+                display: flex;
+                gap: 50px;
+                align-items: center;
+                flex-wrap: wrap;
+              "
+            >
+              <div style="flex: 1; min-width: 300px">
+                <!-- PROFESSIONAL PORTRAIT PLACEHOLDER -->
+                <img
+                  src="https://picsum.photos/id/403/400/500"
+                  alt="Prince Akorede Joledo"
+                  style="
+                    border-radius: 8px;
+                    box-shadow: var(--shadow-card);
+                    width: 100%;
+                  "
+                />
+              </div>
+              <div style="flex: 1; min-width: 300px">
+                <h2 style="text-align: left">
+                  Our Expertise is Your Advantage
+                </h2>
+                <h3 style="margin-bottom: 20px; font-size: 1.4rem">
+                  Prince Akorede Joledo
+                </h3>
+                <!-- UPDATED EXPERTISE STATEMENT -->
+                <p
+                  style="
+                    font-weight: 500;
+                    border-left: 3px solid var(--color-secondary);
+                    padding-left: 20px;
+                    font-style: italic;
+                    margin-bottom: 30px;
+                  "
+                >
+                  The MTC curriculum is developed and led by seasoned
+                  professionals who bring direct, high-level experience from
+                  leadership, commercial, technical, engineering, and industry
+                  practice to the training floor.
+                </p>
+                <p>
+                  Akorede Joledo is a dedicated researcher, engineer, university
+                  lecturer, and social entrepreneur with a strong technical
+                  foundation in various engineering disciplines, particularly
+                  within the energy sector. His expertise spans oil and gas
+                  field development planning, geomechanics applications in
+                  carbon capture, utilization, and storage (CCUS), and well
+                  stability analysis.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- ================== SERVICES PAGE ================== -->
+      <section id="services" class="page-section">
+        <section class="section-padding">
+          <div class="container text-center">
+            <h1>Our Training & Consulting Programs</h1>
+            <p style="max-width: 800px; margin: 20px auto">
+              MTC delivers structured, evidence-based programs tailored for
+              corporate teams, institutions, and professionals.
+            </p>
+          </div>
+
+          <div class="container" style="margin-top: 60px">
+            <!-- Leadership -->
+            <div style="margin-bottom: 60px">
+              <h3
+                style="
+                  border-left: 5px solid var(--color-secondary);
+                  padding-left: 20px;
+                  margin-bottom: 30px;
+                "
+              >
+                1. Leadership and Professional Effectiveness
+              </h3>
+              <div class="grid-2">
+                <div class="card" style="padding: 0">
+                  <img
+                    src="https://cloudinary.hbs.edu/hbsit/image/fetch/q_auto/f_webp/https%3A%2F%2Fwww.hbs.edu%2Fctfassets%2Fpublic%2Fimages%2F7cnfp36ylsAh9LRZzc27IE%2Fwoc-program.jpg"
+                    alt="Leadership"
+                  />
+                  <div style="padding: 30px">
+                    <h4>Leadership Development</h4>
+                    <p>
+                      Building resilient leaders and high-performing teams
+                      through practical workshops.
+                    </p>
+                    <ul
+                      style="
+                        list-style: disc;
+                        padding-left: 20px;
+                        margin: 20px 0;
+                      "
+                    >
+                      <li>Leadership and Personal Effectiveness Training</li>
+                      <li>Team-Building and Collaboration Sessions</li>
+                    </ul>
+                    <a
+                      href="#contact"
+                      onclick="navigateTo('contact')"
+                      style="color: var(--color-primary); font-weight: 700"
+                      >Request Proposal →</a
+                    >
+                  </div>
+                </div>
+                <div class="card" style="padding: 30px">
+                  <h4>Career Readiness</h4>
+                  <p>
+                    Equipping students and early-career professionals with
+                    employability skills.
+                  </p>
+                  <ul
+                    style="list-style: disc; padding-left: 20px; margin: 20px 0"
+                  >
+                    <li>Career Readiness and Professional Skills Training</li>
+                    <li>Institutional Staff Development Programs</li>
+                  </ul>
+                  <a
+                    href="#contact"
+                    onclick="navigateTo('contact')"
+                    style="color: var(--color-primary); font-weight: 700"
+                    >Inquire Now →</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Technical -->
+            <div style="margin-bottom: 60px">
+              <h3
+                style="
+                  border-left: 5px solid var(--color-secondary);
+                  padding-left: 20px;
+                  margin-bottom: 30px;
+                "
+              >
+                2. Technical & Professional Skills
+              </h3>
+              <div class="card" style="padding: 30px">
+                <div style="display: flex; gap: 30px; flex-wrap: wrap">
+                  <div style="flex: 1; min-width: 250px">
+                    <img
+                      src="https://refindustry.com/upload/iblock/52d/g0x5u33kdduz6f500sywtc101m3dy45z.jpg"
+                      alt="Technical"
+                      style="border-radius: 4px"
+                    />
+                  </div>
+                  <div style="flex: 2; min-width: 250px">
+                    <h4>Specialized Technical Competence</h4>
+                    <p>
+                      Hands-on programs focused on engineering and operational
+                      skills.
+                    </p>
+                    <ul
+                      style="
+                        list-style: disc;
+                        padding-left: 20px;
+                        margin: 20px 0;
+                      "
+                    >
+                      <li>Maintenance, Reliability, and Asset Management</li>
+                      <li>Energy Sector Technical Workshops</li>
+                      <li>Custom Technical Needs Assessment</li>
+                    </ul>
+                    <a
+                      href="#contact"
+                      onclick="navigateTo('contact')"
+                      class="cta-button"
+                      style="font-size: 0.8rem"
+                      >Request Technical Training</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="margin-bottom: 60px">
+              <h3
+                style="
+                  border-left: 5px solid var(--color-secondary);
+                  padding-left: 20px;
+                  margin-bottom: 30px;
+                "
+              >
+                3. Retreats, Workshops, Seminars & Conferences
+              </h3>
+              <div class="card" style="padding: 30px">
+                <div style="display: flex; gap: 30px; flex-wrap: wrap">
+                  <div style="flex: 1; min-width: 250px">
+                    <img
+                      src="https://letsgrowleaders.com/wp-content/uploads/2024/09/team-retreat-SynergySprint-e1725307004723.jpg"
+                      alt="Professional corporate team during strategic retreat and team-building session"
+                    />
+                  </div>
+                  <div style="flex: 2; min-width: 250px">
+                    <h4>Facilitated Retreats and Knowledge-Sharing Events</h4>
+                    <p>
+                      Expert facilitation for strategic retreats, seminars,
+                      workshops, and conferences. We design and deliver engaging
+                      sessions that drive alignment, innovation, and long-term
+                      organizational impact.
+                    </p>
+                    <ul>
+                      <li>Corporate Retreats and Offsite Facilitation</li>
+                      <li>Executive Seminars and Industry Conferences</li>
+                      <li>Custom Workshop Design and Delivery</li>
+                      <li>Keynote Speaking and Panel Moderation</li>
+                    </ul>
+                    <a
+                      href="#contact"
+                      onclick="navigateTo('contact')"
+                      style="color: var(--color-primary); font-weight: 700"
+                      >Inquire About Retreat or Event Facilitation →</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-bottom: 60px">
+              <h3
+                style="
+                  border-left: 5px solid var(--color-secondary);
+                  padding-left: 20px;
+                  margin-bottom: 30px;
+                "
+              >
+                4. Project Management & Development
+              </h3>
+              <div class="card" style="padding: 30px">
+                <div style="display: flex; gap: 30px; flex-wrap: wrap">
+                  <div style="flex: 1; min-width: 250px">
+                    <img
+                      src="https://acorn.works/wp-content/uploads/2022/07/consultant-running-a-small-workshop-with-a-team-of-employees-scaled.jpg"
+                      alt="Diverse professionals in project management training workshop"
+                    />
+                  </div>
+                  <div style="flex: 2; min-width: 250px">
+                    <h4>Project Planning, Execution & Delivery Training</h4>
+                    <p>
+                      Comprehensive programs covering project lifecycle
+                      management, risk assessment, stakeholder engagement, and
+                      successful delivery—tailored for technical and corporate
+                      environments.
+                    </p>
+                    <ul>
+                      <li>
+                        Project Management Fundamentals and Advanced Techniques
+                      </li>
+                      <li>Agile and Traditional Methodology Training</li>
+                      <li>Risk Management and Project Recovery Workshops</li>
+                      <li>Project Leadership and Team Coordination</li>
+                    </ul>
+                    <a
+                      href="#contact"
+                      onclick="navigateTo('contact')"
+                      style="color: var(--color-primary); font-weight: 700"
+                      >Request a Project Management Proposal →</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section-padding bg-gray">
+          <div class="container">
+            <h2 class="text-center" style="margin-bottom: 20px">
+              Explore Training Courses by Venue
+            </h2>
+            <p
+              class="text-center"
+              style="
+                max-width: 800px;
+                margin: 0 auto 60px;
+                font-size: 1.2em;
+                color: #555;
+              "
+            >
+              We deliver in-person training in strategic locations across
+              Nigeria, Africa, and internationally – ensuring accessibility and
+              world-class facilities.
+            </p>
+
+            <div class="grid-3">
+              <!-- Reusing category-grid class for consistency -->
+
+              <div class="card category-card">
+                <img
+                  src="https://australgroup.com/wp-content/uploads/2023/03/dubai-montagem.png"
+                  alt="Dubai skyline – premium training venue"
+                />
+                <div class="category-overlay">
+                  <h3>Lagos, Nigeria 🇳🇬</h3>
+                  <p>Our primary hub for corporate and technical programs</p>
+                  <a
+                    href="documents/lagos-courses.pdf"
+                    target="_blank"
+                    class="cta-button"
+                    style="background: var(--color-secondary); margin-top: 15px"
+                    >Explore Programs →</a
+                  >
+                </div>
+              </div>
+
+              <div class="card category-card">
+                <img
+                  src="https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=289531393578772"
+                  alt="Abuja skyline – professional training venue in Nigeria"
+                />
+                <div class="category-overlay">
+                  <h3>Abuja, Nigeria 🇳🇬</h3>
+                  <p>Ideal for government and institutional training</p>
+                  <a
+                    href="documents/lagos-courses.pdf"
+                    target="_blank"
+                    class="cta-button"
+                    style="background: var(--color-secondary); margin-top: 15px"
+                    >Explore Programs →</a
+                  >
+                </div>
+              </div>
+
+              <div class="card category-card">
+                <img
+                  src="https://cms.brightsun.co.uk/uploads/18-11-2024-06-08Dubai-blog.webp"
+                  alt="Accra skyline – Ghana training venue"
+                />
+                <div class="category-overlay">
+                  <h3>Accra, Ghana 🇬🇭</h3>
+                  <p>West African hub for energy and leadership programs</p>
+                  <a
+                    href="documents/lagos-courses.pdf"
+                    target="_blank"
+                    class="cta-button"
+                    style="background: var(--color-secondary); margin-top: 15px"
+                    >Explore Programs →</a
+                  >
+                </div>
+              </div>
+
+              <div class="card category-card">
+                <img
+                  src="https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=410687321868077"
+                  alt="Nairobi skyline – East Africa training venue"
+                />
+                <div class="category-overlay">
+                  <h3>Nairobi, Kenya 🇰🇪</h3>
+                  <p>East African center for project management training</p>
+                  <a
+                    href="documents/lagos-courses.pdf"
+                    target="_blank"
+                    class="cta-button"
+                    style="background: var(--color-secondary); margin-top: 15px"
+                    >Explore Programs →</a
+                  >
+                </div>
+              </div>
+
+              <div class="card category-card">
+                <img
+                  src="https://aztechtraining.com/wp-content/uploads/2021/04/Doha-Banner.jpg"
+                  alt="Dubai skyline – international premium venue"
+                />
+                <div class="category-overlay">
+                  <h3>Dubai, UAE 🇦🇪</h3>
+                  <p>Global hub for advanced technical workshops</p>
+                  <a
+                    href="documents/lagos-courses.pdf"
+                    target="_blank"
+                    class="cta-button"
+                    style="background: var(--color-secondary); margin-top: 15px"
+                    >Explore Programs →</a
+                  >
+                </div>
+              </div>
+
+              <div class="card category-card">
+                <img
+                  src="https://content.skyscnr.com/media/5c6c5f06-13b5-4ebd-8c0d-7aaa41ffd7fd/image-22453.jpg"
+                  alt="London skyline – international training venue"
+                />
+                <div class="category-overlay">
+                  <h3>London, UK 🇬🇧</h3>
+                  <p>
+                    International venue for leadership and certification
+                    programs
+                  </p>
+                  <a
+                    href="documents/lagos-courses.pdf"
+                    target="_blank"
+                    class="cta-button"
+                    style="background: var(--color-secondary); margin-top: 15px"
+                    >Explore Programs →</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="text-center" style="margin-top: 40px">
+              <a
+                href="#contact"
+                onclick="navigateTo('contact')"
+                class="cta-button"
+                style="background: var(--color-primary)"
+                >View All Venues & In-House Options →</a
+              >
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- ================== GALLERY PAGE ================== -->
+      <section id="gallery" class="page-section">
+        <section class="section-padding bg-light text-center">
+          <div class="container">
+            <h1>Visual Proof of Impact</h1>
+            <p style="max-width: 700px; margin: 0 auto">
+              See MTC's capacity-building programs in action and access thought
+              leadership resources.
+            </p>
+          </div>
+        </section>
+
+        <section class="section-padding">
+          <div class="container">
+            <h2 class="text-center">Our Training Categories</h2>
+            <div class="grid-3">
+              <div class="card">
+                <img
+                  src="https://picsum.photos/id/1068/400/250"
+                  alt="Physical"
+                />
+                <div style="padding: 20px">
+                  <h4>Physical Facilitation Sessions</h4>
+                  <p>Structured training focused on discipline and fitness.</p>
+                </div>
+              </div>
+              <div class="card">
+                <img
+                  src="https://picsum.photos/id/160/400/250"
+                  alt="Leadership"
+                />
+                <div style="padding: 20px">
+                  <h4>Leadership Workshops</h4>
+                  <p>Developing soft skills and team resilience.</p>
+                </div>
+              </div>
+              <div class="card">
+                <img
+                  src="https://picsum.photos/id/400/400/250"
+                  alt="Simulation"
+                />
+                <div style="padding: 20px">
+                  <h4>Technical Skills Simulation</h4>
+                  <p>Hands-on application of engineering theory.</p>
+                </div>
+              </div>
+              <div class="card">
+                <img
+                  src="https://picsum.photos/id/145/400/250"
+                  alt="Readiness"
+                />
+                <div style="padding: 20px">
+                  <h4>Career Readiness Training</h4>
+                  <p>Preparing professionals for industry transitions.</p>
+                </div>
+              </div>
+              <div class="card">
+                <img src="https://picsum.photos/id/188/400/250" alt="Virtual" />
+                <div style="padding: 20px">
+                  <h4>Online / Virtual Training</h4>
+                  <p>Display only. Digital delivery options available.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Thought Leadership -->
+        <section class="section-padding bg-gray">
+          <div class="container">
+            <h2 class="text-center">
+              Thought Leadership & Professional Insights
+            </h2>
+            <div
+              style="
+                max-width: 800px;
+                margin: 40px auto;
+                background: white;
+                padding: 40px;
+                border-radius: 8px;
+                border-left: 5px solid var(--color-secondary);
+              "
+            >
+              <!-- REQUESTED TEXT -->
+              <p style="font-size: 1.1rem; color: #333">
+                At Macakod Training Consulting (MTC), we believe that
+                sustainable performance is built through intentional structure,
+                practical skill development, and disciplined execution. Our
+                content reflects emerging trends in workforce development,
+                leadership effectiveness, and performance optimization, while
+                remaining grounded in practical application.
+              </p>
+            </div>
+
+            <div class="grid-3" style="margin-top: 40px">
+              <div class="card" style="padding: 30px">
+                <h4 style="margin-bottom: 15px">
+                  Bridging the Technical Skills Gap
+                </h4>
+                <p style="margin-bottom: 20px">
+                  An analysis of common pitfalls in technical training.
+                </p>
+                <button
+                  onclick="openArticleModal()"
+                  style="
+                    background: none;
+                    border: none;
+                    color: var(--color-primary);
+                    font-weight: 700;
+                    text-decoration: underline;
+                    padding: 0;
+                  "
+                >
+                  Read Abstract
+                </button>
+              </div>
+              <div class="card" style="padding: 30px">
+                <h4 style="margin-bottom: 15px">Discipline Training Impact</h4>
+                <p style="margin-bottom: 20px">
+                  How structured facilitation improved efficiency.
+                </p>
+                <a href="#" style="display: inline-block; margin-top: 10px"
+                  >Download Case Study →</a
+                >
+              </div>
+              <div class="card" style="padding: 30px">
+                <h4 style="margin-bottom: 15px">Role of Soft Skills</h4>
+                <p style="margin-bottom: 20px">
+                  Highlighting non-technical skills for technical leaders.
+                </p>
+                <a href="#" style="display: inline-block; margin-top: 10px"
+                  >Download Report →</a
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- ================== IMPACT PAGE ================== -->
+      <section id="impact" class="page-section">
+        <section
+          class="section-padding bg-gray text-center"
+          style="background: var(--color-primary); color: white"
+        >
+          <div class="container">
+            <h1 style="color: white">Proven Results & Testimonials</h1>
+            <p style="color: rgba(255, 255, 255, 0.8)">
+              See how our structured training programs have built stronger
+              teams.
+            </p>
+          </div>
+        </section>
+
+        <section class="section-padding">
+          <div class="container">
+            <h2 class="text-center">What Our Clients Say</h2>
+            <div class="grid-3">
+              <!-- Testimonial 1 -->
+              <div class="testimonial-card">
+                <div class="testimonial-photo">
+                  <img src="https://picsum.photos/id/64/100/100" alt="Client" />
+                </div>
+                <div class="testimonial-text">
+                  “Macakod Training Consulting delivered a highly structured and
+                  practical training program that significantly improved our
+                  team’s discipline, collaboration, and performance.”
+                </div>
+                <div>
+                  <div class="testimonial-author">Engr. David Adu</div>
+                  <span class="testimonial-role"
+                    >Technical Director, Phantom Engineering Consult</span
+                  >
+                </div>
+              </div>
+              <!-- Testimonial 2 -->
+              <div class="testimonial-card">
+                <div class="testimonial-photo">
+                  <img src="https://picsum.photos/id/65/100/100" alt="Client" />
+                </div>
+                <div class="testimonial-text">
+                  “MTC’s leadership and capacity-building sessions were
+                  impactful and well-organized... The practical approach and
+                  depth of facilitation set MTC apart.”
+                </div>
+                <div>
+                  <div class="testimonial-author">Engr. Adebayo Oyewole</div>
+                  <span class="testimonial-role"
+                    >JJ Westerner Construction</span
+                  >
+                </div>
+              </div>
+              <!-- Testimonial 3 -->
+              <div class="testimonial-card">
+                <div class="testimonial-photo">
+                  <img src="https://picsum.photos/id/66/100/100" alt="Client" />
+                </div>
+                <div class="testimonial-text">
+                  “Macakod Training Consulting provided an excellent training
+                  experience for our staff and students... We highly recommend
+                  MTC for institutions.”
+                </div>
+                <div>
+                  <div class="testimonial-author">Prof. David Orodu</div>
+                  <span class="testimonial-role">MD, KEOT Synergy Nigeria</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- ================== CONTACT PAGE ================== -->
+      <section id="contact" class="page-section">
+        <section class="section-padding">
+          <div class="container">
+            <h1 class="text-center">Let's Discuss Your Needs</h1>
+            <p
+              class="text-center"
+              style="max-width: 700px; margin: 20px auto 50px"
+            >
+              Use the form below to schedule a consultation or request a custom
+              proposal.
+            </p>
+
+            <div class="grid-2">
+              <div class="card" style="padding: 40px">
+                <form id="contactForm">
+                  <input
+                    type="text"
+                    placeholder="Organization/Company Name"
+                    required
+                  />
+                  <input type="text" placeholder="Your Full Name" required />
+                  <input
+                    type="email"
+                    placeholder="Work Email Address"
+                    required
+                  />
+                  <textarea
+                    rows="6"
+                    placeholder="Describe your training area of interest..."
+                    required
+                  ></textarea>
+                  <button type="submit" class="submit-btn">
+                    Submit Proposal Request
+                  </button>
+                </form>
+                <p id="formResponse" style="margin-top: 15px"></p>
+              </div>
+
+              <div class="contact-details">
+                <h3>Direct Contact Information</h3>
+                <p style="margin-bottom: 30px">
+                  We are available to discuss your corporate training
+                  requirements.
                 </p>
 
-                <div class="category-grid venue-grid"> <!-- Reusing category-grid class for consistency -->
-                    
-                    <div class="category-card">
-                        <img src="https://australgroup.com/wp-content/uploads/2023/03/dubai-montagem.png" alt="Dubai skyline – premium training venue">
-                        <div class="category-overlay">
-                            <h3>Lagos, Nigeria 🇳🇬</h3>
-                            <p>Our primary hub for corporate and technical programs</p>
-                            <a href="mtc-contact.html" class="cta-button" style="background: var(--color-secondary); margin-top: 15px;">Explore Programs →</a>
-                        </div>
+                <!-- Modern Icon: Phone -->
+                <div class="icon-box">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81-.7A2 2 0 0 1 22 16.92z"
+                    ></path>
+                  </svg>
+                  <div>
+                    <div style="font-weight: 700">Phone Line 1:</div>
+                    <a href="tel:08133071893" style="color: #555"
+                      >08133071893</a
+                    >
+                    <div style="font-weight: 700; margin-top: 5px">
+                      Phone Line 2:
                     </div>
-
-                    <div class="category-card">
-                        <img src="https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=289531393578772" alt="Abuja skyline – professional training venue in Nigeria">
-                        <div class="category-overlay">
-                            <h3>Abuja, Nigeria 🇳🇬</h3>
-                            <p>Ideal for government and institutional training</p>
-                            <a href="mtc-contact.html" class="cta-button" style="background: var(--color-secondary); margin-top: 15px;">Explore Programs →</a>
-                        </div>
-                    </div>
-
-                    <div class="category-card">
-                        <img src="https://cms.brightsun.co.uk/uploads/18-11-2024-06-08Dubai-blog.webp" alt="Accra skyline – Ghana training venue">
-                        <div class="category-overlay">
-                            <h3>Accra, Ghana 🇬🇭</h3>
-                            <p>West African hub for energy and leadership programs</p>
-                            <a href="mtc-contact.html" class="cta-button" style="background: var(--color-secondary); margin-top: 15px;">Explore Programs →</a>
-                        </div>
-                    </div>
-
-                    <div class="category-card">
-                        <img src="https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=410687321868077" alt="Nairobi skyline – East Africa training venue">
-                        <div class="category-overlay">
-                            <h3>Nairobi, Kenya 🇰🇪</h3>
-                            <p>East African center for project management training</p>
-                            <a href="mtc-contact.html" class="cta-button" style="background: var(--color-secondary); margin-top: 15px;">Explore Programs →</a>
-                        </div>
-                    </div>
-
-                    <div class="category-card">
-                        <img src="https://aztechtraining.com/wp-content/uploads/2021/04/Doha-Banner.jpg" alt="Dubai skyline – international premium venue">
-                        <div class="category-overlay">
-                            <h3>Dubai, UAE 🇦🇪</h3>
-                            <p>Global hub for advanced technical workshops</p>
-                            <a href="mtc-contact.html" class="cta-button" style="background: var(--color-secondary); margin-top: 15px;">Explore Programs →</a>
-                        </div>
-                    </div>
-
-                    <div class="category-card">
-                        <img src="https://content.skyscnr.com/media/5c6c5f06-13b5-4ebd-8c0d-7aaa41ffd7fd/image-22453.jpg" alt="London skyline – international training venue">
-                        <div class="category-overlay">
-                            <h3>London, UK 🇬🇧</h3>
-                            <p>International venue for leadership and certification programs</p>
-                            <a href="mtc-contact.html" class="cta-button" style="background: var(--color-secondary); margin-top: 15px;">Explore Programs →</a>
-                        </div>
-                    </div>
-
+                    <a href="tel:+2348000000000" style="color: #555"
+                      >+234 800 000 0000</a
+                    >
+                  </div>
                 </div>
 
-                <div style="text-align: center; margin-top: 40px;">
-                    <a href="mtc-contact.html" class="cta-button" style="background: var(--color-primary);">View All Venues & In-House Options →</a>
+                <!-- Modern Icon: Email -->
+                <div class="icon-box">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                    ></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                  <div>
+                    <div style="font-weight: 700">Email for Inquiries:</div>
+                    <a href="mailto:info@mtc.com" style="color: #555"
+                      >info@mtc.com</a
+                    >
+                  </div>
                 </div>
+
+                <!-- Modern Icon: Address -->
+                <div class="icon-box">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+                    ></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <div>
+                    <div style="font-weight: 700">Mailing Address:</div>
+                    <p style="color: #555">
+                      Macakod Training Consulting (MTC)<br />Lagos, Nigeria
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
         </section>
-
-        <!-- Keep your Measured Impact section with testimonials + metrics counter -->
-        <section id="impact-section">
-            <div class="container">
-                <h2>Measured Impact: Client Voices</h2>
-                
-                <div class="testimonial-grid">
-                    <div class="testimonial-card">
-                        <blockquote>“Macakod Training Consulting delivered a highly structured and practical training program that significantly improved our team’s discipline, collaboration, and performance... MTC is truly results-driven and professional.”</blockquote>
-                        <footer>Engr. David Adu <span>Technical Director, Phantom Engineering Consult Limited</span></footer>
-                    </div>
-                    <!-- Add the other 3 testimonials similarly -->
-                    <div class="testimonial-card">
-                        <blockquote>“MTC’s leadership and capacity-building sessions were impactful and well-organized... The practical approach and depth of facilitation set MTC apart.”</blockquote>
-                        <footer>Engr. Adebayo Oyewole <span>JJ Westerner Construction and Engineering Nigeria Limited</span></footer>
-                    </div>
-                    <div class="testimonial-card">
-                        <blockquote>“Macakod Training Consulting provided an excellent training experience for our staff and students... We highly recommend MTC for institutions seeking high-impact training.”</blockquote>
-                        <footer>Prof. David Orodu <span>MD, KEOT Synergy Nigeria Limited</span></footer>
-                    </div>
-                </div>
-
-                <!-- Redesigned Impact in Numbers Section -->
-                <div id="home-metrics-section">
-                    <h2 style="color: var(--color-light);">Our Impact in Numbers</h2>
-                    
-                    <div class="metric-grid">
-                        
-                        <div class="metric-card">
-                            <span class="number" data-target="95">0</span><span>%</span>
-                            <p>Trainee Satisfaction Rate</p>
-                        </div>
-    
-                        <div class="metric-card">
-                            <span class="number" data-target="100">0</span><span>+</span>
-                            <p>Workshops Delivered Annually</p>
-                        </div>
-    
-                        <div class="metric-card">
-                            <span class="number" data-target="30">0</span><span>%</span>
-                            <p>Avg. Increase in Performance Scores</p>
-                        </div>
-    
-                        <div class="metric-card">
-                            <span class="number" data-target="15">0</span><span>+</span>
-                            <p>Years of Combined Trainer Experience</p>
-                        </div>
-    
-                    </div>
-                </div>
-                <!-- End of Redesigned Section -->
-            </div>
-        </section>
-
-        <!-- Accreditations & Certifications -->
-        <section id="accreditations-section">
-            <div class="container">
-                <h2>Accreditations & Professional Certifications</h2>
-                <p>Our programs are aligned with global standards and contribute to continuing professional development (CPD) credits.</p>
-                <div class="accreditations-grid">
-                    <img src="https://aigproexcellence.com/wp-content/uploads/2025/02/11-1024x753.png" alt="Business Case Specialist Certification">
-
-                    <img src="https://www.alphamarineservicesltd.com/wp-content/uploads/2025/02/CPD-recognised-1024x585.png" alt="CPD Recognised Provider">
-
-                    <img src="https://aigproexcellence.com/wp-content/uploads/2025/07/Business-Case.png" alt="Business Case Certification">
-
-                    <img src="https://aigproexcellence.com/wp-content/uploads/2021/08/2_AIGPE-Yellow-Belt-Digital-Badge_Certifications-1024x753.png" alt="Six Sigma Yellow Belt">
-
-                    <img src="https://aigproexcellence.com/wp-content/uploads/2021/08/AIGPE-Kano-Digital-Badge_Certifications-1024x753.png" alt="Kano Analysis Specialist">
-                </div>
-            </div>
-        </section>
-
-        <!-- Our Clients (Bonus) -->
-        <section id="clients-section">
-            <div class="container">
-                <h2>Our Clients</h2>
-                <p>We proudly serve leading organizations in the energy, engineering, and corporate sectors across Nigeria and Africa.</p>
-                <div class="clients-grid">
-                    <img src="https://ortec-group.com/wp-content/uploads/2024/09/logos_oil-gas_2.jpg" alt="Oil & Gas Client Logos">
-
-                    <img src="https://www.teosimek.com/teoClients.png" alt="Teosimek Clients">
-
-                    <img src="https://macdillionsge.com/wp-content/uploads/2023/03/Logo-Transparent-Background.png" alt="Macdillions Global Energy">
-                </div>
-            </div>
-        </section>
-
+      </section>
     </main>
 
+    <!-- FOOTER -->
     <footer>
-        <div class="container footer-content">
-            <div class="footer-logo-section">
-                <a href="mtc-index.html" class="logo">MTC <span>Consulting</span></a>
-                <p style="color: #AAA;">Training consulting, corporate training, leadership development, capacity building, physical training facilitation, professional development.</p>
-            </div>
-            
-            <div class="footer-links">
-                <h4>Site Links</h4>
-                <ul>
-                    <li><a href="mtc-services.html">Services & Programs</a></li>
-                    <li><a href="mtc-about.html">Meet Our Experts</a></li>
-                    <li><a href="mtc-gallery.html">Training Gallery</a></li>
-                    <li><a href="mtc-impact.html">Impact</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-links">
-                <h4>Contact Details</h4>
-                <ul>
-                    <li>Email: <a href="mailto:mtc@info.com">mtc@info.com</a></li>
-                    <li>Phone: <a href="tel:08133071893">08133071893</a></li>
-                    <li>facebook: <a href="@MacakodTariningCentre">@MacakodTariningCentre</a></li>
-                    <li><a href="mtc-contact.html">Request Proposal</a></li>
-                </ul>
-                
-                <!-- ADDED: Social Media Links -->
-                <div class="social-links">
-                    <a href="https://wa.me/2348133071893" class="social-icon" target="_blank" title="WhatsApp">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                    </a>
-                    <a href="#" class="social-icon" target="_blank" title="Instagram">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                    </a>
-                    <a href="#" class="social-icon" target="_blank" title="X (Twitter)">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                    </a>
-                    <a href="#" class="social-icon" target="_blank" title="LinkedIn">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                    </a>
-                </div>
-            </div>
+      <div class="container footer-grid">
+        <div>
+          <a href="#home" onclick="navigateTo('home')" class="footer-brand"
+            >MTC Consulting</a
+          >
+          <p>
+            A results-driven partner for individuals and organizations seeking
+            practical training solutions.
+          </p>
+        </div>
+        <div class="footer-links">
+          <h4>Site Links</h4>
+          <ul>
+            <li>
+              <a href="#services" onclick="navigateTo('services')"
+                >Services & Programs</a
+              >
+            </li>
+            <li>
+              <a href="#about" onclick="navigateTo('about')">About MTC</a>
+            </li>
+            <li>
+              <a href="#gallery" onclick="navigateTo('gallery')"
+                >Training Gallery</a
+              >
+            </li>
+            <li><a href="#impact" onclick="navigateTo('impact')">Impact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Contact Details</h4>
+          <ul>
+            <li>Email: <a href="mailto:info@mtc.com">info@mtc.com</a></li>
+            <li>Phone: <a href="tel:08133071893">08133071893</a></li>
+            <li>
+              facebook:
+              <a href="@MacakodTariningCentre">@MacakodTariningCentre</a>
+            </li>
+            <li>
+              <a href="#contact" onclick="navigateTo('contact')"
+                >Request Proposal</a
+              >
+            </li>
+          </ul>
 
-            <div class="footer-links">
-                <h4>MTC Insights</h4>
-                <p style="color: #999; font-size: 0.9em; margin-top: 10px;">Get our quarterly leadership brief.</p>
-                <form id="footerNewsletterForm">
-                    <input type="email" placeholder="Your Email" required>
-                    <button type="submit" class="cta-button">Sign Up</button>
-                </form>
-            </div>
+          <!-- RESTORED SOCIAL MEDIA LINKS -->
+          <div class="social-links">
+            <a
+              href="https://wa.me/2348133071893"
+              class="social-icon"
+              target="_blank"
+              title="WhatsApp"
+            >
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+                />
+              </svg>
+            </a>
+            <a href="#" class="social-icon" target="_blank" title="Instagram">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                />
+              </svg>
+            </a>
+            <a href="#" class="social-icon" target="_blank" title="X (Twitter)">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                />
+              </svg>
+            </a>
+            <a href="#" class="social-icon" target="_blank" title="LinkedIn">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                />
+              </svg>
+            </a>
+          </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; <span id="currentYear"></span> Macakod Training Consulting (A subsidiary of MEL) | All Rights Reserved. | <a href="#" style="color: var(--color-secondary);">Privacy Policy</a></p>
+
+        <div class="footer-links">
+          <h4>MTC Insights</h4>
+          <p style="color: #999; font-size: 0.9em; margin-top: 10px">
+            Get our quarterly leadership brief.
+          </p>
+          <form id="footerNewsletterForm">
+            <input
+              type="email"
+              placeholder="Your Email"
+              required
+              style="
+                background: rgba(255, 255, 255, 0.1);
+                border: 1px solid #444;
+                color: white;
+              "
+            />
+            <button type="submit" class="cta-button" style="font-size: 0.8rem">
+              Sign Up
+            </button>
+          </form>
         </div>
+      </div>
+      <div class="container copyright">
+        <p>
+          &copy; <span id="currentYear"></span> Macakod Training Consulting. All
+          Rights Reserved.
+        </p>
+      </div>
     </footer>
 
-    <!-- Training Proposal Modal -->
-<div id="proposalModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <h2>Request a Training Proposal</h2>
-        <p>Fill in the details below and we'll get back to you within 24 hours with a customized proposal.</p>
-        
-        <form id="proposalForm">
-            <label>Full Name *</label>
-            <input type="text" required placeholder="Your full name">
-            
-            <label>Organization / Company *</label>
-            <input type="text" required placeholder="Company name">
-            
-            <label>Job Title</label>
-            <input type="text" placeholder="Your position">
-            
-            <label>Email Address *</label>
-            <input type="email" required placeholder="work@email.com">
-            
-            <label>Phone Number *</label>
-            <input type="tel" required placeholder="+234...">
-            
-            <label>Program Category *</label>
-            <select required>
-                <option value="" disabled selected>Select a category</option>
-                <option>Leadership & Professional Effectiveness</option>
-                <option>Technical & Professional Skills Development</option>
-                <option>Retreats, Workshops, Seminars & Conferences</option>
-                <option>Project Management & Development</option>
-            </select>
-            
-            <label>Training Format *</label>
-            <select required>
-                <option value="" disabled selected>Select format</option>
-                <option>In-Person Training</option>
-                <option>Virtual / Live Online</option>
-                <option>In-House / Custom</option>
-            </select>
-            
-            <label>Preferred Venue (for In-Person)</label>
-            <select>
-                <option value="" selected>Not applicable / Any</option>
-                <option>Lagos, Nigeria</option>
-                <option>Abuja, Nigeria</option>
-                <option>Accra, Ghana</option>
-                <option>Nairobi, Kenya</option>
-                <option>Dubai, UAE</option>
-                <option>London, UK</option>
-            </select>
-            
-            <label>Expected Number of Participants</label>
-            <input type="number" min="1" placeholder="e.g., 15">
-            
-            <label>Additional Requirements or Message</label>
-            <textarea rows="5" placeholder="Tell us more about your training needs, dates, or specific topics..."></textarea>
-            
-            <button type="submit" class="cta-button" style="width:100%; background: var(--color-primary); margin-top:20px;">Submit Request</button>
-        </form>
-        
-        <div id="thankYouMessage" style="display:none; text-align:center; padding:40px;">
-            <h3 style="color:var(--color-secondary);">✅ Thank You!</h3>
-            <p>Your training proposal request has been received.<br>We will contact you within one business day.</p>
-            <button onclick="closeModal()" class="cta-button" style="background: var(--color-primary);">Close</button>
+    <!-- ARTICLE MODAL (Bridging Technical Skills Gap) -->
+    <div id="articleModal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal" onclick="closeArticleModal()">&times;</span>
+        <h2 style="margin-bottom: 20px">Bridging the Technical Skills Gap</h2>
+        <hr
+          style="border: 0; border-top: 1px solid #eee; margin-bottom: 30px"
+        />
+        <div style="margin-bottom: 30px; font-size: 1.1rem; color: #444">
+          <strong>Abstract:</strong><br />
+          The engineering sector faces a critical disconnect between academic
+          theory and practical application. Many graduates enter the workforce
+          with robust theoretical knowledge but lack the hands-on competence
+          required for immediate productivity. This article analyzes how
+          simulation-based training bridges this gap, providing a safe
+          environment for failure and rapid learning, ultimately reducing costly
+          on-site errors.
         </div>
+        <a
+          href="https://example.com/full-article"
+          target="_blank"
+          class="cta-button"
+          >Read Full Article on External Site →</a
+        >
+      </div>
     </div>
-</div>
 
-<script>
-    function openModal() {
-        document.getElementById('proposalModal').style.display = 'block';
-        document.body.style.overflow = 'hidden'; // Prevent background scroll
-    }
+    <!-- PROPOSAL FORM MODAL -->
+    <div id="proposalModal" class="modal">
+      <div class="modal-content" style="max-width: 600px">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h2>Request a Training Proposal</h2>
+        <p>
+          Fill in the details below and we'll get back to you within 24 hours.
+        </p>
+        <form id="proposalForm" style="margin-top: 20px">
+          <input type="text" placeholder="Full Name" required />
+          <input type="text" placeholder="Company Name" required />
+          <input type="email" placeholder="Work Email" required />
+          <select required>
+            <option value="" disabled selected>Select Category</option>
+            <option>Leadership</option>
+            <option>Technical</option>
+            <option>Project Management</option>
+          </select>
+          <button type="submit" class="submit-btn">Submit Request</button>
+        </form>
+      </div>
+    </div>
 
-    function closeModal() {
-        document.getElementById('proposalModal').style.display = 'none';
-        document.body.style.overflow = 'auto';
-        document.getElementById('proposalForm').reset();
-        document.getElementById('thankYouMessage').style.display = 'none';
-        document.getElementById('proposalForm').style.display = 'block';
-    }
-
-    // Submit simulation
-    document.getElementById('proposalForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        document.getElementById('proposalForm').style.display = 'none';
-        document.getElementById('thankYouMessage').style.display = 'block';
-    });
-
-    // Close on outside click
-    window.onclick = function(event) {
-        const modal = document.getElementById('proposalModal');
-        if (event.target == modal) {
-            closeModal();
-        }
-    }
-</script>
-
-    <script>
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-    </script>
-
-    <script>
-        // Counter Animation
-        const counters = document.querySelectorAll('.number');
-        const speed = 200;
-
-        const startCounting = (counter) => {
-            const target = +counter.getAttribute('data-target');
-            const count = +counter.innerText.replace(/[^\d]/, ''); // Handle + or %
-
-            if (count < target) {
-                const increment = target / speed;
-                counter.innerText = Math.ceil(count + increment);
-                if (counter.nextElementSibling && counter.nextElementSibling.textContent === '%') {
-                    counter.innerText += '%';
-                } else if (counter.nextElementSibling && counter.nextElementSibling.textContent === '+') {
-                    counter.innerText += '+';
-                }
-                setTimeout(() => startCounting(counter), 15);
-            } else {
-                counter.innerText = target;
-                if (counter.nextElementSibling && counter.nextElementSibling.textContent === '%') {
-                    counter.innerText += '%';
-                } else if (counter.nextElementSibling && counter.nextElementSibling.textContent === '+') {
-                    counter.innerText += '+';
-                }
-            }
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const counter = entry.target;
-                    if (!counter.classList.contains('counted')) {
-                        startCounting(counter);
-                        counter.classList.add('counted');
-                    }
-                }
-            });
-        }, { threshold: 0.7 });
-
-        counters.forEach(counter => observer.observe(counter));
-    </script>
-
-    <script>
-        // Menu Toggle Logic
-        document.querySelector('.menu-toggle').addEventListener('click', function() {
-            document.querySelector('nav').classList.toggle('open');
-        });
-    </script>
-
-    <a href="https://wa.me/2348133071893" class="whatsapp-float" target="_blank" title="Chat with MTC on WhatsApp">
-        <span>💬</span> 
+    <!-- RESTORED WHATSAPP FLOAT BUTTON -->
+    <a
+      href="https://wa.me/2348133071893"
+      class="whatsapp-float"
+      target="_blank"
+      title="Chat on WhatsApp"
+    >
+      <span>💬</span>
     </a>
 
-</body>
+    <!-- JS LOGIC -->
+    <script>
+      document.getElementById("currentYear").textContent =
+        new Date().getFullYear();
+
+      // --- SPA NAVIGATION ---
+      function navigateTo(pageId) {
+        event.preventDefault();
+        // Hide all
+        document
+          .querySelectorAll(".page-section")
+          .forEach((p) => p.classList.remove("active-section"));
+        // Show target
+        document.getElementById(pageId).classList.add("active-section");
+        // Update nav
+        document
+          .querySelectorAll("nav a")
+          .forEach((a) => a.classList.remove("active"));
+        const activeLink = document.querySelector(`nav a[href="#${pageId}"]`);
+        if (activeLink) activeLink.classList.add("active");
+
+        // Close mobile menu
+        document.querySelector("nav").classList.remove("open");
+
+        // Scroll to top
+        window.scrollTo(0, 0);
+      }
+
+      document
+        .querySelector(".menu-toggle")
+        .addEventListener("click", function () {
+          document.querySelector("nav").classList.toggle("open");
+        });
+
+      // --- MODALS ---
+      function openModal() {
+        document.getElementById("proposalModal").style.display = "block";
+      }
+      function closeModal() {
+        document.getElementById("proposalModal").style.display = "none";
+      }
+      function openArticleModal() {
+        document.getElementById("articleModal").style.display = "block";
+      }
+      function closeArticleModal() {
+        document.getElementById("articleModal").style.display = "none";
+      }
+
+      // Close on click outside
+      window.onclick = function (event) {
+        if (event.target.classList.contains("modal")) {
+          event.target.style.display = "none";
+        }
+      };
+
+      // --- FORM HANDLING ---
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const btn = this.querySelector("button");
+          const originalText = btn.innerText;
+          btn.innerText = "Sent Successfully!";
+          btn.style.background = "#28a745";
+          document.getElementById("formResponse").innerText =
+            "Thank you. We will contact you within one business day.";
+          this.reset();
+          setTimeout(() => {
+            btn.innerText = originalText;
+            btn.style.background = "var(--color-primary)";
+          }, 3000);
+        });
+
+      document
+        .getElementById("proposalForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          closeModal();
+          alert("Proposal Request Received! We will contact you shortly.");
+          this.reset();
+        });
+    </script>
+  </body>
 </html>
