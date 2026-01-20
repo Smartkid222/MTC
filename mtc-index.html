@@ -307,6 +307,7 @@
         border: 3px solid white;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         overflow: hidden;
+        z-index: 1; /* Ensure image sits on top */
       }
       .testimonial-photo img {
         width: 100%;
@@ -317,11 +318,13 @@
         font-style: italic;
         margin-bottom: 20px;
         color: #444;
+        padding-right: 75px; /* ADDED: Prevents text from flowing under the photo */
       }
       .testimonial-author {
         font-weight: 700;
         color: var(--color-primary);
         font-size: 1.1rem;
+        padding-right: 75px; /* ADDED: Prevents name from flowing under the photo */
       }
       .testimonial-role {
         display: block;
@@ -330,6 +333,7 @@
         color: #777;
         font-style: normal;
         margin-top: 5px;
+        padding-right: 75px; /* ADDED: Prevents role from flowing under the photo */
       }
 
       /* --- MODERN ICONS (SVG Styling) --- */
@@ -570,6 +574,12 @@
           width: 50px;
           height: 50px;
         }
+        /* Adjust text padding for smaller mobile photo */
+        .testimonial-text,
+        .testimonial-author,
+        .testimonial-role {
+          padding-right: 60px;
+        }
       }
     </style>
   </head>
@@ -638,7 +648,7 @@
               "
             >
               Macakod Training & Consulting is a capacity-building and
-              professional development outfit positioned at the intersection of
+              professional development outfit positioned at intersection of
               technical expertise, leadership development, and practical skills
               facilitation. We deliver structured, outcome-focused training that
               translates theory into measurable performance improvement.
@@ -836,7 +846,7 @@
               Download our detailed course brochures for each location.
             </p>
             <div class="grid-3">
-              <!-- Note: href="#" acts as a placeholder for the actual PDF download -->
+              <!-- Note: href="#" acts as a placeholder for actual PDF download -->
               <div class="card category-card">
                 <img
                   src="https://australgroup.com/wp-content/uploads/2023/03/dubai-montagem.png"
@@ -1861,7 +1871,7 @@
               class="text-center"
               style="max-width: 700px; margin: 20px auto 50px"
             >
-              Use the form below to schedule a consultation or request a custom
+              Use's form below to schedule a consultation or request a custom
               proposal.
             </p>
 
