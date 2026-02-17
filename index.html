@@ -413,7 +413,7 @@
         gap: 50px; /* Increased gap */
         position: relative;
         z-index: 2;
-      }
+        }
       .mission-item h3 {
         color: var(--color-secondary);
         margin-bottom: 20px;
@@ -458,11 +458,12 @@
         font-size: 0.95rem;
         color: #777;
       }
-      /* Additional styling for testimonials in Impact section */
+      
+      /* Circular Photo for Testimonials */
       .testimonial-photo {
         position: absolute;
-        top: 15px;
-        right: 15px;
+        top: 20px;
+        right: 20px;
         width: 60px;
         height: 60px;
         background: #ddd;
@@ -470,6 +471,7 @@
         border: 3px solid white;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         overflow: hidden;
+        z-index: 2;
       }
       .testimonial-photo img {
         width: 100%;
@@ -897,6 +899,8 @@
         .testimonial-photo {
           width: 50px;
           height: 50px;
+          top: 15px;
+          right: 15px;
         }
         .mission-box {
           padding: 50px 30px;
@@ -1155,12 +1159,16 @@
             </div>
           </div>
         </section>
-        <!-- SECTION 5: MEASURED IMPACT -->
+        <!-- SECTION 5: MEASURED IMPACT (UPDATED WITH PHOTOS) -->
         <section class="section-padding bg-light">
           <div class="container">
             <h2 class="text-center">Measured Impact: Client Voices</h2>
             <div class="grid-3" style="margin-top: 40px">
               <div class="testimonial-card">
+                <!-- Added Circular Photo -->
+                <div class="testimonial-photo">
+                  <img src="https://picsum.photos/id/64/100/100" alt="Engr. David Adu" />
+                </div>
                 <div class="quote-icon">“</div>
                 <div class="testimonial-text">
                   Macakod Training Consulting delivered a highly structured and
@@ -1175,6 +1183,10 @@
                 </div>
               </div>
               <div class="testimonial-card">
+                <!-- Added Circular Photo -->
+                <div class="testimonial-photo">
+                  <img src="https://picsum.photos/id/65/100/100" alt="Engr. Adebayo Oyewole" />
+                </div>
                 <div class="quote-icon">“</div>
                 <div class="testimonial-text">
                   MTC’s leadership and capacity-building sessions were impactful
@@ -1188,6 +1200,10 @@
                 </div>
               </div>
               <div class="testimonial-card">
+                <!-- Added Circular Photo -->
+                <div class="testimonial-photo">
+                  <img src="https://picsum.photos/id/66/100/100" alt="Prof. David Orodu" />
+                </div>
                 <div class="quote-icon">“</div>
                 <div class="testimonial-text">
                   Macakod Training Consulting provided an excellent training
