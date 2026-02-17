@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -14,10 +14,10 @@
       name="description"
       content="Macakod Training Consulting delivers practical, evidence-based training and consulting in leadership, technical skills, project management, and retreats for energy and corporate professionals."
     />
-
     <style>
       /* --- CSS VARIABLES & RESET --- */
       :root {
+        /* MTC Corporate Colors */
         --color-primary: #003366; /* Deep Corporate Blue */
         --color-secondary: #e6b800; /* Gold/Accent */
         --color-text: #2c3e50;
@@ -26,25 +26,29 @@
         --color-white: #ffffff;
         --font-main: "Roboto", sans-serif;
         --transition-speed: 0.3s;
+        /* Shadows and Radius */
+        --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
         --shadow-card: 0 5px 15px rgba(0, 0, 0, 0.08);
-        --shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.12);
+        --shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.1);
+        --radius-std: 12px;
+        --radius-lg: 20px;
       }
-
       * {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
       }
-
       body {
         font-family: var(--font-main);
         color: var(--color-text);
         background-color: var(--color-white);
-        line-height: 1.7;
+        /* IMPROVED: Increased line-height for better readability */
+        line-height: 1.8; 
         overflow-x: hidden;
         font-weight: 400;
+        /* IMPROVED: Slightly larger base font for desktop */
+        font-size: 17px; 
       }
-
       a {
         text-decoration: none;
         color: inherit;
@@ -78,8 +82,9 @@
       .text-accent {
         color: var(--color-secondary);
       }
+      /* IMPROVED: Increased vertical padding */
       .section-padding {
-        padding: 80px 0;
+        padding: 100px 0;
       }
       .bg-light {
         background-color: var(--color-light);
@@ -88,32 +93,42 @@
         background-color: var(--color-gray-bg);
       }
 
-      /* --- TYPOGRAPHY IMPROVEMENTS --- */
+      /* --- TYPOGRAPHY (IMPROVED) --- */
       h1,
       h2,
       h3,
       h4 {
         color: var(--color-primary);
-        font-weight: 700;
-        margin-bottom: 1rem;
-        line-height: 1.3;
+        font-weight: 800; /* Bolder for better hierarchy */
+        margin-bottom: 1.2rem;
+        line-height: 1.2;
+        letter-spacing: -0.02em; /* Tighter tracking for headlines */
       }
       h1 {
-        font-size: 2.5rem;
-        letter-spacing: -0.5px;
+        font-size: 3rem; /* Larger H1 */
       }
       h2 {
-        font-size: 2rem;
-        margin-bottom: 1.5rem;
+        font-size: 2.4rem; /* Larger H2 */
+        margin-bottom: 2rem;
         text-align: center;
       }
       h3 {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
+      }
+      h4 {
+        font-size: 1.25rem;
+        margin-bottom: 0.8rem;
       }
       p {
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem; /* Increased spacing between paragraphs */
         font-size: 1.05rem;
         color: #555;
+      }
+      /* Limit text width for readability */
+      .readable-text {
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
       }
 
       /* --- BUTTONS --- */
@@ -122,26 +137,32 @@
         background: var(--color-secondary);
         color: white;
         padding: 14px 32px;
-        border-radius: 4px;
+        border-radius: 50px;
         font-weight: 700;
         text-transform: uppercase;
-        font-size: 0.85rem;
+        font-size: 0.9rem; /* Slightly larger */
         letter-spacing: 0.5px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 10px rgba(230, 184, 0, 0.3);
       }
       .cta-button:hover {
         background: #d4a800;
         transform: translateY(-2px);
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
       }
       .cta-button.outline {
         background: transparent;
         border: 2px solid white;
         color: white;
+        box-shadow: none;
       }
       .cta-button.outline:hover {
         background: white;
         color: var(--color-primary);
+      }
+      .cta-button.dark {
+        background: var(--color-primary);
+      }
+      .cta-button.dark:hover {
+        background: #002244;
       }
 
       /* --- HEADER & NAV --- */
@@ -158,16 +179,13 @@
         justify-content: space-between;
         align-items: center;
       }
-
-      /* Logo Adjustment */
       header .logo img {
-        height: 80px; /* Increased size as requested */
+        height: 80px;
         width: auto;
       }
-
       nav {
         display: flex;
-        gap: 30px;
+        gap: 35px;
         align-items: center;
       }
       nav a {
@@ -189,7 +207,6 @@
         height: 2px;
         background: var(--color-secondary);
       }
-
       .menu-toggle {
         display: none;
         font-size: 1.5rem;
@@ -218,23 +235,354 @@
       }
 
       /* --- GRIDS --- */
+      .grid-2 {
+        display: grid;
+        gap: 40px; /* Increased gap */
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      }
       .grid-3 {
         display: grid;
-        gap: 30px;
+        gap: 40px; /* Increased gap */
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       }
       .grid-4 {
         display: grid;
         gap: 30px;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      }
-      .grid-2 {
-        display: grid;
-        gap: 50px;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       }
 
-      /* --- CARDS --- */
+      /* --- HTML1 HOME COMPONENTS --- */
+      /* Hero Section */
+      .hero-section {
+        background: linear-gradient(135deg, #003366 0%, #004080 100%);
+        color: white;
+        padding: 120px 0; /* Increased padding */
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 850px;
+        margin: 0 auto;
+      }
+      .hero-section h1 {
+        color: white;
+        font-size: 3.2rem; /* Larger Hero text */
+        margin-bottom: 25px;
+        line-height: 1.15;
+      }
+      .hero-section p {
+        color: rgba(255, 255, 255, 0.95);
+        font-size: 1.25rem; /* Larger subtext */
+        margin-bottom: 40px;
+        line-height: 1.7;
+      }
+
+      /* Feature Cards */
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+        margin-top: -80px;
+        position: relative;
+        z-index: 10;
+      }
+      .feature-card {
+        background: white;
+        padding: 50px 35px; /* Increased padding */
+        border-radius: var(--radius-std);
+        box-shadow: var(--shadow-soft);
+        text-align: center;
+        transition: var(--transition-speed);
+        border-bottom: 4px solid transparent;
+      }
+      .feature-card:hover {
+        transform: translateY(-10px);
+        border-bottom: 4px solid var(--color-secondary);
+        box-shadow: var(--shadow-hover);
+      }
+      .feature-icon {
+        font-size: 3.5rem;
+        margin-bottom: 25px; /* Increased gap */
+        color: var(--color-secondary);
+        display: inline-block;
+      }
+
+      /* Split Section */
+      .split-section {
+        display: flex;
+        align-items: center;
+        gap: 80px; /* Increased gap */
+        margin-top: 80px;
+        margin-bottom: 80px;
+      }
+      .split-text {
+        flex: 1;
+      }
+      .split-text p {
+        font-size: 1.1rem;
+        line-height: 1.9;
+        color: #444;
+      }
+      .split-image {
+        flex: 1;
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        box-shadow: var(--shadow-soft);
+      }
+      .split-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        min-height: 400px;
+      }
+
+      /* Service Cards */
+      .service-card {
+        background: white;
+        border-radius: var(--radius-std);
+        overflow: hidden;
+        box-shadow: var(--shadow-soft);
+        transition: var(--transition-speed);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-hover);
+      }
+      .service-img {
+        height: 220px; /* Taller images */
+        background: #eee;
+        overflow: hidden;
+      }
+      .service-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.5s;
+      }
+      .service-card:hover .service-img img {
+        transform: scale(1.1);
+      }
+      .service-content {
+        padding: 30px; /* Increased padding */
+        text-align: center;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .service-content h3 {
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+      }
+      .service-content a {
+        color: var(--color-secondary);
+        font-weight: 700;
+        margin-top: auto;
+        display: inline-block;
+      }
+
+      /* Mission Box */
+      .mission-box {
+        background: var(--color-primary);
+        color: white;
+        padding: 80px 60px; /* Increased padding */
+        border-radius: var(--radius-lg);
+        position: relative;
+        overflow: hidden;
+      }
+      .mission-box::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 200px;
+        height: 200px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 50%;
+        transform: translate(50%, -50%);
+      }
+      .mission-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 50px; /* Increased gap */
+        position: relative;
+        z-index: 2;
+      }
+      .mission-item h3 {
+        color: var(--color-secondary);
+        margin-bottom: 20px;
+      }
+      .mission-item p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 1.05rem;
+        line-height: 1.8;
+      }
+
+      /* Testimonials */
+      .testimonial-card {
+        background: white;
+        padding: 50px 40px; /* Increased padding */
+        border-radius: var(--radius-std);
+        box-shadow: var(--shadow-soft);
+        position: relative;
+        border-left: 4px solid var(--color-secondary);
+      }
+      .quote-icon {
+        font-size: 4rem;
+        color: rgba(0, 51, 102, 0.1);
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-family: serif;
+      }
+      .testimonial-text {
+        font-style: italic;
+        margin-bottom: 25px;
+        position: relative;
+        z-index: 1;
+        font-size: 1.1rem;
+        line-height: 1.8;
+      }
+      .testimonial-author {
+        font-weight: 700;
+        color: var(--color-primary);
+        font-size: 1.1rem;
+      }
+      .testimonial-role {
+        font-size: 0.95rem;
+        color: #777;
+      }
+      /* Additional styling for testimonials in Impact section */
+      .testimonial-photo {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        width: 60px;
+        height: 60px;
+        background: #ddd;
+        border-radius: 50%;
+        border: 3px solid white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+      .testimonial-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* Mode Cards */
+      .mode-card {
+        text-align: center;
+        padding: 40px; /* Increased padding */
+        background: white;
+        border-radius: var(--radius-std);
+        box-shadow: var(--shadow-soft);
+        transition: var(--transition-speed);
+      }
+      .mode-card:hover {
+        background: var(--color-primary);
+        color: white;
+      }
+      .mode-card:hover h3,
+      .mode-card:hover p {
+        color: white;
+      }
+      .mode-number {
+        width: 60px; /* Larger */
+        height: 60px;
+        background: var(--color-gray-bg);
+        color: var(--color-primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.4rem;
+        margin: 0 auto 25px;
+        transition: 0.3s;
+      }
+      .mode-card:hover .mode-number {
+        background: var(--color-secondary);
+        color: white;
+      }
+
+      /* Appointment */
+      .appointment-wrapper {
+        background: white;
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-soft);
+        overflow: hidden;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .appointment-info {
+        background: var(--color-primary);
+        color: white;
+        padding: 60px; /* Increased padding */
+        flex: 1;
+        min-width: 300px;
+      }
+      .appointment-info h3 {
+        color: var(--color-secondary);
+      }
+      .appointment-info p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 1.05rem;
+        line-height: 1.8;
+      }
+      .appointment-form {
+        padding: 60px; /* Increased padding */
+        flex: 1.5;
+        min-width: 300px;
+      }
+      
+      /* Venue Cards */
+      .venue-card {
+        border-radius: var(--radius-std);
+        overflow: hidden;
+        position: relative;
+        height: 250px;
+        box-shadow: var(--shadow-soft);
+      }
+      .venue-card img {
+        width: 100%;
+        height: 100%;
+        transition: 0.5s;
+      }
+      .venue-card:hover img {
+        transform: scale(1.05);
+      }
+      .venue-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(0, 51, 102, 0.9), transparent);
+        padding: 25px;
+        color: white;
+      }
+      .venue-overlay h4 {
+        color: white;
+        margin-bottom: 5px;
+        font-size: 1.3rem;
+      }
+      .venue-btn {
+        background: var(--color-secondary);
+        color: white;
+        font-size: 0.85rem;
+        padding: 8px 20px;
+        border-radius: 20px;
+        display: inline-block;
+      }
+
+      /* --- OTHER HTML2 COMPONENTS --- */
       .card {
         background: white;
         border-radius: 8px;
@@ -249,18 +597,6 @@
         transform: translateY(-5px);
         box-shadow: var(--shadow-hover);
       }
-
-      .value-card {
-        padding: 40px 30px;
-        text-align: center;
-        border: 1px solid #eee;
-      }
-      .value-icon {
-        font-size: 3rem;
-        margin-bottom: 20px;
-        color: var(--color-secondary);
-      }
-
       .category-card {
         position: relative;
         height: 320px;
@@ -286,115 +622,40 @@
         color: white;
         padding: 30px 20px;
       }
-
-      /* --- TESTIMONIALS --- */
-      .testimonial-card {
-        position: relative;
-        background: var(--color-light);
-        padding: 40px 30px;
-        border-radius: 8px;
-        border-left: 5px solid var(--color-secondary);
+      .value-card {
+        padding: 50px 35px; /* Increased padding */
+        text-align: center;
+        border: 1px solid #eee;
       }
-      /* Circular Image Placeholder Logic */
-      .testimonial-photo {
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        width: 60px;
-        height: 60px;
-        background: #ddd;
-        border-radius: 50%;
-        border: 3px solid white;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        z-index: 1; /* Ensure image sits on top */
-      }
-      .testimonial-photo img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-      .testimonial-text {
-        font-style: italic;
-        margin-bottom: 20px;
-        color: #444;
-        padding-right: 75px; /* ADDED: Prevents text from flowing under the photo */
-      }
-      .testimonial-author {
-        font-weight: 700;
-        color: var(--color-primary);
-        font-size: 1.1rem;
-        padding-right: 75px; /* ADDED: Prevents name from flowing under the photo */
-      }
-      .testimonial-role {
-        display: block;
-        font-weight: 400;
-        font-size: 0.9rem;
-        color: #777;
-        font-style: normal;
-        margin-top: 5px;
-        padding-right: 75px; /* ADDED: Prevents role from flowing under the photo */
-      }
-
-      /* --- MODERN ICONS (SVG Styling) --- */
-      .icon-box {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        margin-bottom: 20px;
-        color: var(--color-primary);
-      }
-      .icon-box svg {
-        width: 24px;
-        height: 24px;
-        stroke: currentColor;
-        fill: none;
-        stroke-width: 2;
-      }
-      .contact-details h3 {
+      .value-icon {
+        font-size: 3rem;
         margin-bottom: 25px;
-        border-bottom: 2px solid var(--color-secondary);
-        display: inline-block;
-        padding-bottom: 5px;
+        color: var(--color-secondary);
       }
 
-      /* --- SOCIAL MEDIA ICONS --- */
-      .social-links {
+      /* --- ACCREDITATIONS STYLING --- */
+      .accreditation-card {
+        padding: 30px 20px;
+        text-align: center;
         display: flex;
-        gap: 15px;
-        margin-top: 20px;
-      }
-      .social-icon {
-        display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 35px;
-        height: 35px;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
-        transition: all 0.3s ease;
       }
-      /* Footer specific override since bg is dark */
-      footer .social-icon {
-        background: rgba(255, 255, 255, 0.1);
+      .accreditation-card img {
+        max-height: 80px;
+        margin-bottom: 15px;
+        object-fit: contain;
       }
-      footer .social-icon svg {
-        fill: #fff;
+      .accreditation-card h4 {
+        margin-bottom: 5px;
+        font-size: 1.1rem;
       }
-      footer .social-icon:hover {
-        background: var(--color-secondary);
-        transform: translateY(-2px);
-      }
-      /* Body/Light Background override (if used elsewhere) */
-      .social-icon:not(footer .social-icon) svg {
-        fill: #555;
-      }
-      .social-icon:not(footer .social-icon):hover {
-        background: #003366;
-      }
-      .social-icon svg {
-        width: 18px;
-        height: 18px;
+      .accreditation-card p {
+        font-size: 0.9rem;
+        color: #777;
+        margin-bottom: 0;
+        line-height: 1.5;
       }
 
       /* --- FORMS --- */
@@ -402,11 +663,12 @@
       textarea,
       select {
         width: 100%;
-        padding: 14px;
-        margin-bottom: 20px;
+        padding: 16px; /* Larger inputs */
+        margin-bottom: 25px; /* More spacing */
         border: 1px solid #ddd;
-        border-radius: 4px;
+        border-radius: 6px;
         font-family: inherit;
+        font-size: 1rem; /* Larger font for inputs */
         background: #fff;
         transition: 0.3s;
       }
@@ -414,32 +676,57 @@
       textarea:focus {
         border-color: var(--color-primary);
         outline: none;
-        box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.1);
+        box-shadow: 0 0 0 4px rgba(0, 51, 102, 0.1);
       }
       .submit-btn {
         width: 100%;
-        padding: 15px;
+        padding: 18px; /* Larger button */
         background: var(--color-primary);
         color: white;
         font-weight: 700;
         font-size: 1rem;
-        border-radius: 4px;
+        border-radius: 6px;
         text-transform: uppercase;
+        letter-spacing: 1px;
       }
       .submit-btn:hover {
         background: #002244;
+      }
+
+      /* --- MODERN ICONS (SVG Styling) --- */
+      .icon-box {
+        display: flex;
+        align-items: flex-start;
+        gap: 25px; /* Increased gap */
+        margin-bottom: 30px;
+        color: var(--color-primary);
+      }
+      .icon-box svg {
+        width: 32px; /* Larger icons */
+        height: 32px;
+        fill: currentColor;
+        stroke: none;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+      .contact-details h3 {
+        margin-bottom: 30px;
+        border-bottom: 2px solid var(--color-secondary);
+        display: inline-block;
+        padding-bottom: 5px;
+        font-size: 1.8rem; /* Larger */
       }
 
       /* --- FOOTER --- */
       footer {
         background: #111;
         color: #aaa;
-        padding: 70px 0 20px;
+        padding: 80px 0 20px; /* Increased padding */
         margin-top: 80px;
       }
       .footer-grid {
         display: grid;
-        gap: 40px;
+        gap: 50px;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         margin-bottom: 50px;
       }
@@ -452,11 +739,12 @@
       }
       .footer-links h4 {
         color: white;
-        margin-bottom: 20px;
-        font-size: 1.1rem;
+        margin-bottom: 25px;
+        font-size: 1.2rem;
       }
       .footer-links li {
-        margin-bottom: 12px;
+        margin-bottom: 15px;
+        font-size: 1rem;
       }
       .footer-links a:hover {
         color: var(--color-secondary);
@@ -468,8 +756,43 @@
         text-align: center;
         font-size: 0.9rem;
       }
+      footer .social-icon {
+        background: rgba(255, 255, 255, 0.1);
+      }
+      footer .social-icon svg {
+        fill: #fff;
+      }
+      footer .social-icon:hover {
+        background: var(--color-secondary);
+        transform: translateY(-2px);
+      }
+      .social-icon:not(footer .social-icon) svg {
+        fill: #555;
+      }
+      .social-icon:not(footer .social-icon):hover {
+        background: #003366;
+      }
+      .social-icon svg {
+        width: 18px;
+        height: 18px;
+      }
+      .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+      }
+      .social-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        transition: all 0.3s ease;
+      }
 
-      /* --- MODAL (For Article) --- */
+      /* --- MODAL --- */
       .modal {
         display: none;
         position: fixed;
@@ -484,7 +807,7 @@
       .modal-content {
         background: white;
         margin: 5% auto;
-        padding: 40px;
+        padding: 50px; /* Increased padding */
         border-radius: 8px;
         width: 90%;
         max-width: 800px;
@@ -505,34 +828,12 @@
         position: absolute;
         top: 20px;
         right: 25px;
-        font-size: 35px;
+        font-size: 40px;
         cursor: pointer;
         color: #555;
       }
       .close-modal:hover {
         color: var(--color-primary);
-      }
-
-      /* --- WHATSAPP FLOAT --- */
-      .whatsapp-float {
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        background-color: #25d366;
-        color: white;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 30px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        z-index: 1500;
-        transition: transform 0.3s;
-      }
-      .whatsapp-float:hover {
-        transform: scale(1.1);
       }
 
       /* --- RESPONSIVE --- */
@@ -547,7 +848,7 @@
           right: 0;
           background: white;
           flex-direction: column;
-          padding: 20px;
+          padding: 25px;
           gap: 15px;
           box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
           display: none;
@@ -555,30 +856,56 @@
         nav.open {
           display: flex;
         }
+        
+        /* TYPOGRAPHY ADJUSTMENTS FOR MOBILE */
         h1 {
+          font-size: 2rem;
+        }
+        h2 {
           font-size: 1.8rem;
         }
+        h3 {
+          font-size: 1.4rem;
+        }
+        body {
+            font-size: 16px; /* Standard mobile size */
+            line-height: 1.7;
+        }
+        p {
+            font-size: 1rem;
+        }
+
         .grid-2,
         .grid-3,
         .grid-4 {
           grid-template-columns: 1fr;
         }
-        .trainer-card {
+        .split-section {
+          flex-direction: column;
+          gap: 40px;
+        }
+        .features-grid {
+          margin-top: 40px;
+        }
+        .appointment-wrapper {
           flex-direction: column;
         }
         .testimonial-card {
-          padding-right: 20px;
-          padding-top: 30px;
-        } /* Adjust for photo */
+          padding-right: 25px;
+          padding-top: 35px;
+        }
         .testimonial-photo {
           width: 50px;
           height: 50px;
         }
-        /* Adjust text padding for smaller mobile photo */
-        .testimonial-text,
-        .testimonial-author,
-        .testimonial-role {
-          padding-right: 60px;
+        .mission-box {
+          padding: 50px 30px;
+        }
+        .appointment-info, .appointment-form {
+            padding: 40px 30px;
+        }
+        .section-padding {
+            padding: 60px 0;
         }
       }
     </style>
@@ -589,13 +916,11 @@
       <div class="container">
         <div class="nav-content">
           <a href="#home" class="logo" onclick="navigateTo('home')">
-            <!-- Increased size handled via CSS -->
             <img
               src="https://z-cdn-media.chatglm.cn/files/34bf2864-cba7-4d40-8141-9ca7978e7791.png?auth_key=1868156680-cb1107b7c574447db97a02366a0ecf97-0-6f13e25dee6cbc1d1f5d077a4cbfdea2"
               alt="Macakod Training Consulting Logo"
             />
           </a>
-
           <button class="menu-toggle" aria-label="Toggle navigation">
             &#9776;
           </button>
@@ -614,27 +939,12 @@
         </div>
       </div>
     </header>
-
     <main>
-      <!-- ================== HOME PAGE ================== -->
+      <!-- ================== HOME PAGE (REPLACED WITH HTML1 CONTENT) ================== -->
       <section id="home" class="page-section active-section">
-        <!-- Hero -->
-        <section
-          id="hero"
-          style="
-            background: linear-gradient(
-                rgba(0, 51, 102, 0.85),
-                rgba(0, 51, 102, 0.75)
-              ),
-              url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 120px 0;
-            text-align: center;
-          "
-        >
-          <div class="container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+          <div class="container hero-content">
             <h1 style="color: white; margin-bottom: 25px">
               Practical, Results-Driven Training for
               <span class="text-accent">High-Performing Teams</span>
@@ -648,39 +958,25 @@
               "
             >
               Macakod Training & Consulting is a capacity-building and
-              professional development outfit positioned at intersection of
+              professional development outfit positioned at the intersection of
               technical expertise, leadership development, and practical skills
               facilitation. We deliver structured, outcome-focused training that
               translates theory into measurable performance improvement.
             </p>
-            <div
-              style="
-                display: flex;
-                gap: 15px;
-                justify-content: center;
-                flex-wrap: wrap;
-              "
-            >
-              <button onclick="openModal()" class="cta-button">
-                Request a Training Proposal
-              </button>
-              <a
-                href="#contact"
-                onclick="navigateTo('contact')"
-                class="cta-button outline"
-                >Book a Consultation</a
-              >
-            </div>
+            <button onclick="openModal()" class="cta-button">
+              Request a Proposal
+            </button>
+            <button onclick="navigateTo('contact')" class="cta-button outline">
+              Book Consultation
+            </button>
           </div>
         </section>
-
-        <!-- Value Prop -->
+        <!-- SECTION 1: WHY CHOOSE MTC -->
         <section class="section-padding">
           <div class="container">
-            <h2>Why Choose MTC?</h2>
-            <div class="grid-3">
-              <div class="card value-card">
-                <div class="value-icon">🎯</div>
+            <div class="features-grid">
+              <div class="feature-card">
+                <div class="feature-icon">🎯</div>
                 <h3>Practical Skills Facilitation</h3>
                 <p>
                   We translate theory into immediate practice through
@@ -688,16 +984,16 @@
                   development.
                 </p>
               </div>
-              <div class="card value-card">
-                <div class="value-icon">📊</div>
+              <div class="feature-card">
+                <div class="feature-icon">📊</div>
                 <h3>Evidence-Based Consulting</h3>
                 <p>
                   Grounded in engineering, academia, and industry experience
                   with proven methodologies.
                 </p>
               </div>
-              <div class="card value-card">
-                <div class="value-icon">🤝</div>
+              <div class="feature-card">
+                <div class="feature-icon">🤝</div>
                 <h3>Holistic Performance Focus</h3>
                 <p>
                   Building resilient teams through integrated leadership,
@@ -707,305 +1003,182 @@
             </div>
           </div>
         </section>
-
-        <!-- Program Categories -->
+        <!-- SECTION 2: WE ARE HERE FOR YOU -->
         <section class="section-padding bg-light">
           <div class="container">
-            <h2>Our Program Categories</h2>
-            <div class="grid-4">
-              <div class="card category-card">
-                <img
-                  src="https://www.womenlifthealth.org/wp-content/uploads/2024/11/LJ-Flow-NA-2023-Nigeria.jpg"
-                  alt="Leadership"
-                />
-                <div class="category-overlay">
-                  <h3>Leadership & Professional Effectiveness</h3>
+            <div class="split-section">
+              <div class="split-text">
+                <h4
+                  style="
+                    color: var(--color-secondary);
+                    text-transform: uppercase;
+                    font-size: 0.9rem;
+                  "
+                >
+                  Who We Are
+                </h4>
+                <h2 style="text-align: left">We Empower Your Workforce</h2>
+                <p style="margin-bottom: 20px">
+                  <b>Macakod Training Consulting (MTC)</b>, a proud subsidiary of
+                  <b>Macakod Energy Limited (MEL) – RC 1025569</b>, is positioned at
+                  the intersection of technical expertise, leadership
+                  development, and practical skills facilitation.
+                </p>
+                <p>
+                  Drawing from strong roots in engineering, 
+                  academia, and industry practice, we translate theory 
+                  into measurable workforce effectiveness.
+                </p>
+                <div style="margin-top: 30px">
                   <a
-                    href="#services"
-                    onclick="navigateTo('services')"
-                    class="cta-button"
-                    style="margin-top: 10px; font-size: 0.75rem"
-                    >Explore Programs</a
+                    href="#about"
+                    onclick="navigateTo('about')"
+                    class="cta-button dark"
+                    >More About Us</a
                   >
                 </div>
               </div>
-              <div class="card category-card">
+              <div class="split-image">
                 <img
-                  src="https://petroedgeasia.net/wp-content/uploads/2024/06/oil-and-gas-careers-1024x681.jpg"
-                  alt="Technical"
+                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                  alt="Training Session"
                 />
-                <div class="category-overlay">
-                  <h3>Technical & Professional Skills</h3>
-                  <a
-                    href="#services"
-                    onclick="navigateTo('services')"
-                    class="cta-button"
-                    style="margin-top: 10px; font-size: 0.75rem"
-                    >Explore Programs</a
-                  >
-                </div>
-              </div>
-              <div class="card category-card">
-                <img
-                  src="https://letsgrowleaders.com/wp-content/uploads/2024/09/team-retreat-SynergySprint-e1725307004723.jpg"
-                  alt="Retreats"
-                />
-                <div class="category-overlay">
-                  <h3>Retreats, Workshops & Seminars</h3>
-                  <a
-                    href="#services"
-                    onclick="navigateTo('services')"
-                    class="cta-button"
-                    style="margin-top: 10px; font-size: 0.75rem"
-                    >Explore Programs</a
-                  >
-                </div>
-              </div>
-              <div class="card category-card">
-                <img
-                  src="https://phoenixtrainingcenter.com/assets/images/courses/training-in-project-management-professional-pmp-certification-course.jpeg"
-                  alt="Project Management"
-                />
-                <div class="category-overlay">
-                  <h3>Project Management & Development</h3>
-                  <a
-                    href="#services"
-                    onclick="navigateTo('services')"
-                    class="cta-button"
-                    style="margin-top: 10px; font-size: 0.75rem"
-                    >Explore Programs</a
-                  >
-                </div>
               </div>
             </div>
           </div>
         </section>
-
-        <!-- Training Modes (Renamed) -->
+        <!-- SECTION 3: OUR SERVICES -->
         <section class="section-padding">
           <div class="container">
-            <h2>Training Modes</h2>
-            <div class="grid-3">
-              <div class="card">
-                <img
-                  src="https://cdn.guardian.ng/wp-content/uploads/2015/03/IMG-20240303-WA0001.jpg"
-                  alt="In-person"
-                  style="height: 200px"
-                />
-                <div style="padding: 25px">
-                  <h3 style="font-size: 1.3rem; margin-bottom: 10px">
-                    In-Person / Onsite Training
-                  </h3>
-                  <p>
-                    Immersive classroom sessions in strategic locations across
-                    Nigeria and internationally.
-                  </p>
+            <h2 class="text-center">Our Program Categories</h2>
+            <div class="grid-4" style="margin-top: 40px">
+              <!-- Card 1 -->
+              <div class="service-card">
+                <div class="service-img">
+                  <img
+                    src="https://www.womenlifthealth.org/wp-content/uploads/2024/11/LJ-Flow-NA-2023-Nigeria.jpg"
+                    alt="Leadership"
+                  />
                 </div>
-              </div>
-              <div class="card">
-                <img
-                  src="https://opportunitydesk.org/wp-content/uploads/2025/05/ASIF-Campus-Enterprise-Leadership-Program-CELP-2025-for-Nigerian-Students-768x427.png"
-                  alt="Virtual"
-                  style="height: 200px"
-                />
-                <div style="padding: 25px">
-                  <h3 style="font-size: 1.3rem; margin-bottom: 10px">
-                    Virtual / Live Online Training
-                  </h3>
-                  <p>
-                    Interactive online sessions with real-time facilitation and
-                    global access. (Informational Only)
-                  </p>
-                </div>
-              </div>
-              <div class="card">
-                <img
-                  src="https://rmi.org/wp-content/uploads/2025/07/eta-global-women-in-clean-energy.jpg"
-                  alt="In-house"
-                  style="height: 200px"
-                />
-                <div style="padding: 25px">
-                  <h3 style="font-size: 1.3rem; margin-bottom: 10px">
-                    In-House / Custom
-                  </h3>
-                  <p>
-                    Tailored programs delivered at your premises or designed
-                    specifically for your organization.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Venues (PDF Links) -->
-        <section class="section-padding bg-gray">
-          <div class="container">
-            <h2>Explore Training Courses by Venue</h2>
-            <p class="text-center" style="margin-bottom: 40px">
-              Download our detailed course brochures for each location.
-            </p>
-            <div class="grid-3">
-              <!-- Note: href="#" acts as a placeholder for actual PDF download -->
-              <div class="card category-card">
-                <img
-                  src="https://australgroup.com/wp-content/uploads/2023/03/dubai-montagem.png"
-                  alt="Lagos"
-                />
-                <div class="category-overlay">
-                  <h3>Lagos, Nigeria 🇳🇬</h3>
-                  <a
-                    href="documents/lagos-courses.pdf"
-                    target="_blank"
-                    class="cta-button"
-                    style="
-                      background: #fff;
-                      color: var(--color-primary);
-                      margin-top: 10px;
-                      font-size: 0.75rem;
-                    "
-                    >Download PDF</a
+                <div class="service-content">
+                  <h3>Leadership & Effectiveness</h3>
+                  <p>Building resilient leaders and high-performing teams.</p>
+                  <a href="#services" onclick="navigateTo('services')"
+                    >Learn More &rarr;</a
                   >
                 </div>
               </div>
-              <div class="card category-card">
-                <img
-                  src="https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=289531393578772"
-                  alt="Abuja"
-                />
-                <div class="category-overlay">
-                  <h3>Abuja, Nigeria 🇳🇬</h3>
-                  <a
-                    href="documents/abuja-courses.pdf"
-                    target="_blank"
-                    class="cta-button"
-                    style="
-                      background: #fff;
-                      color: var(--color-primary);
-                      margin-top: 10px;
-                      font-size: 0.75rem;
-                    "
-                    >Download PDF</a
+              <!-- Card 2 -->
+              <div class="service-card">
+                <div class="service-img">
+                  <img
+                    src="https://petroedgeasia.net/wp-content/uploads/2024/06/oil-and-gas-careers-1024x681.jpg"
+                    alt="Technical"
+                  />
+                </div>
+                <div class="service-content">
+                  <h3>Technical Skills</h3>
+                  <p>Hands-on engineering and operational competence.</p>
+                  <a href="#services" onclick="navigateTo('services')"
+                    >Learn More &rarr;</a
                   >
                 </div>
               </div>
-              <div class="card category-card">
-                <img
-                  src="https://cms.brightsun.co.uk/uploads/18-11-2024-06-08Dubai-blog.webp"
-                  alt="Accra"
-                />
-                <div class="category-overlay">
-                  <h3>Accra, Ghana 🇬🇭</h3>
-                  <a
-                    href="documents/accra-courses.pdf"
-                    target="_blank"
-                    class="cta-button"
-                    style="
-                      background: #fff;
-                      color: var(--color-primary);
-                      margin-top: 10px;
-                      font-size: 0.75rem;
-                    "
-                    >Download PDF</a
+              <!-- Card 3 -->
+              <div class="service-card">
+                <div class="service-img">
+                  <img
+                    src="https://letsgrowleaders.com/wp-content/uploads/2024/09/team-retreat-SynergySprint-e1725307004723.jpg"
+                    alt="Retreats"
+                  />
+                </div>
+                <div class="service-content">
+                  <h3>Retreats & Seminars</h3>
+                  <p>Facilitated strategic offsites and workshops.</p>
+                  <a href="#services" onclick="navigateTo('services')"
+                    >Learn More &rarr;</a
                   >
                 </div>
               </div>
-              <div class="card category-card">
-                <img
-                  src="https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=410687321868077"
-                  alt="Nairobi"
-                />
-                <div class="category-overlay">
-                  <h3>Nairobi, Kenya 🇰🇪</h3>
-                  <a
-                    href="documents/nairobi-courses.pdf"
-                    target="_blank"
-                    class="cta-button"
-                    style="
-                      background: #fff;
-                      color: var(--color-primary);
-                      margin-top: 10px;
-                      font-size: 0.75rem;
-                    "
-                    >Download PDF</a
-                  >
+              <!-- Card 4 -->
+              <div class="service-card">
+                <div class="service-img">
+                  <img
+                    src="https://phoenixtrainingcenter.com/assets/images/courses/training-in-project-management-professional-pmp-certification-course.jpeg"
+                    alt="Project Mgmt"
+                  />
                 </div>
-              </div>
-              <div class="card category-card">
-                <img
-                  src="https://aztechtraining.com/wp-content/uploads/2021/04/Doha-Banner.jpg"
-                  alt="Dubai"
-                />
-                <div class="category-overlay">
-                  <h3>Dubai, UAE 🇦🇪</h3>
-                  <a
-                    href="documents/dubai-courses.pdf"
-                    target="_blank"
-                    class="cta-button"
-                    style="
-                      background: #fff;
-                      color: var(--color-primary);
-                      margin-top: 10px;
-                      font-size: 0.75rem;
-                    "
-                    >Download PDF</a
-                  >
-                </div>
-              </div>
-              <div class="card category-card">
-                <img
-                  src="https://content.skyscnr.com/media/5c6c5f06-13b5-4ebd-8c0d-7aaa41ffd7fd/image-22453.jpg"
-                  alt="London"
-                />
-                <div class="category-overlay">
-                  <h3>London, UK 🇬🇧</h3>
-                  <a
-                    href="documents/london-courses.pdf"
-                    target="_blank"
-                    class="cta-button"
-                    style="
-                      background: #fff;
-                      color: var(--color-primary);
-                      margin-top: 10px;
-                      font-size: 0.75rem;
-                    "
-                    >Download PDF</a
+                <div class="service-content">
+                  <h3>Project Management</h3>
+                  <p>Planning, execution, and delivery training.</p>
+                  <a href="#services" onclick="navigateTo('services')"
+                    >Learn More &rarr;</a
                   >
                 </div>
               </div>
             </div>
           </div>
         </section>
-
-        <!-- Impact (Home) -->
+        <!-- SECTION 4: VISION & MISSION -->
         <section class="section-padding">
+          <div class="container">
+            <div class="mission-box">
+              <h2 class="text-center" style="color: white; margin-bottom: 50px">
+                Our Commitment
+              </h2>
+              <div class="mission-grid">
+                <div class="mission-item">
+                  <h3>Discipline & Competence</h3>
+                  <p>
+                    We emphasize discipline, competence development, and
+                    practical application, particularly within demanding
+                    technical and operational environments.
+                  </p>
+                </div>
+                <div class="mission-item">
+                  <h3>Evidence-Based Approach</h3>
+                  <p>
+                    Our consulting is grounded in evidence-based methods and
+                    real-world experience, ensuring our programs build
+                    resilient, skilled, and motivated teams.
+                  </p>
+                </div>
+                <div class="mission-item">
+                  <h3>Sustainable Impact</h3>
+                  <p>
+                    We are results-driven, focusing on sustainable performance
+                    improvement and enhancing employability and professional
+                    readiness.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- SECTION 5: MEASURED IMPACT -->
+        <section class="section-padding bg-light">
           <div class="container">
             <h2 class="text-center">Measured Impact: Client Voices</h2>
-            <div class="grid-3">
+            <div class="grid-3" style="margin-top: 40px">
               <div class="testimonial-card">
-                <div class="testimonial-photo">
-                  <img src="https://picsum.photos/id/64/100/100" alt="Client" />
-                </div>
+                <div class="quote-icon">“</div>
                 <div class="testimonial-text">
-                  “Macakod Training Consulting delivered a highly structured and
+                  Macakod Training Consulting delivered a highly structured and
                   practical training program that significantly improved our
-                  team’s discipline, collaboration, and performance.”
+                  team’s discipline, collaboration, and performance.
                 </div>
                 <div>
                   <div class="testimonial-author">Engr. David Adu</div>
                   <span class="testimonial-role"
-                    >Technical Director, Phantom Engineering Consult</span
+                    >Technical Director, Phantom Engineering</span
                   >
                 </div>
               </div>
               <div class="testimonial-card">
-                <div class="testimonial-photo">
-                  <img src="https://picsum.photos/id/65/100/100" alt="Client" />
-                </div>
+                <div class="quote-icon">“</div>
                 <div class="testimonial-text">
-                  “MTC’s leadership and capacity-building sessions were
-                  impactful and well-organized... The practical approach sets
-                  MTC apart.”
+                  MTC’s leadership and capacity-building sessions were impactful
+                  and well-organized. The practical approach sets MTC apart.
                 </div>
                 <div>
                   <div class="testimonial-author">Engr. Adebayo Oyewole</div>
@@ -1015,128 +1188,264 @@
                 </div>
               </div>
               <div class="testimonial-card">
-                <div class="testimonial-photo">
-                  <img src="https://picsum.photos/id/66/100/100" alt="Client" />
-                </div>
+                <div class="quote-icon">“</div>
                 <div class="testimonial-text">
-                  “Macakod Training Consulting provided an excellent training
+                  Macakod Training Consulting provided an excellent training
                   experience for our staff and students. We highly recommend
-                  MTC.”
+                  MTC.
                 </div>
                 <div>
                   <div class="testimonial-author">Prof. David Orodu</div>
-                  <span class="testimonial-role"
-                    >MD, KEOT Synergy Nigeria Limited</span
-                  >
+                  <span class="testimonial-role">MD, KEOT Synergy Nigeria</span>
                 </div>
               </div>
             </div>
           </div>
         </section>
-
-        <!-- Accreditations (Expanded) -->
+        <!-- SECTION 6: TRAINING MODES -->
+        <section class="section-padding">
+          <div class="container">
+            <h2 class="text-center">Training Modes</h2>
+            <div class="grid-3" style="margin-top: 50px">
+              <div class="mode-card">
+                <div class="mode-number">1</div>
+                <h3>In-Person / Onsite</h3>
+                <p>
+                  Immersive classroom sessions in strategic locations across
+                  Nigeria and internationally.
+                </p>
+              </div>
+              <div class="mode-card">
+                <div class="mode-number">2</div>
+                <h3>Virtual / Online</h3>
+                <p>
+                  Interactive online sessions with real-time facilitation and
+                  global access.
+                </p>
+              </div>
+              <div class="mode-card">
+                <div class="mode-number">3</div>
+                <h3>In-House / Custom</h3>
+                <p>
+                  Tailored programs delivered at your premises or designed
+                  specifically for your organization.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- SECTION 7: APPOINTMENT -->
+        <section class="section-padding bg-gray">
+          <div class="container">
+            <h2 class="text-center" style="margin-bottom: 50px">
+              Book an Appointment
+            </h2>
+            <div class="appointment-wrapper">
+              <div class="appointment-info">
+                <h3>Get in Touch</h3>
+                <p style="margin-bottom: 30px">
+                  Ready to transform your team's performance? Schedule a
+                  consultation with our experts today.
+                </p>
+                <div style="margin-bottom: 20px">
+                  <strong>Phone:</strong><br />
+                  08133071893
+                </div>
+                <div style="margin-bottom: 20px">
+                  <strong>Email:</strong><br />
+                  info@mtc.com
+                </div>
+                <div>
+                  <strong>Address:</strong><br />
+                  Lagos, Nigeria
+                </div>
+              </div>
+              <div class="appointment-form">
+                <form id="contactForm">
+                  <input type="text" placeholder="Organization Name" required />
+                  <input type="text" placeholder="Your Name" required />
+                  <input type="email" placeholder="Email Address" required />
+                  <select required>
+                    <option value="" disabled selected>Area of Interest</option>
+                    <option>Leadership Training</option>
+                    <option>Technical Skills</option>
+                    <option>Retreat Facilitation</option>
+                    <option>Project Management</option>
+                  </select>
+                  <textarea
+                    rows="4"
+                    placeholder="How can we help you?"
+                    required
+                  ></textarea>
+                  <button
+                    type="submit"
+                    class="cta-button dark"
+                    style="width: 100%"
+                  >
+                    Submit Request
+                  </button>
+                </form>
+                <p id="formResponse" style="margin-top: 15px; color: green"></p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- SECTION 8: ACCREDITATIONS (EXPANDED) -->
         <section class="section-padding bg-light">
           <div class="container text-center">
-            <h2>Accreditations & Professional Certifications</h2>
-            <p style="margin-bottom: 40px">
-              Our programs are aligned with global standards and contribute to
-              continuing professional development (CPD) credits.
+            <h2 style="font-size: 1.8rem; margin-bottom: 15px">
+              Accreditations & Professional Certifications
+            </h2>
+            <p style="margin-bottom: 40px; color: #555; max-width: 700px; margin-left: auto; margin-right: auto;">
+              We operate with integrity and professional excellence, aligning with recognized industry standards and regulatory bodies to ensure the highest quality of service delivery.
             </p>
             <div class="grid-4">
-              <!-- Placeholders for expansion -->
-              <div
-                class="card"
-                style="
-                  padding: 20px;
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-                  height: 120px;
-                "
-              >
+              <!-- COREN -->
+              <div class="card accreditation-card">
                 <img
-                  src="https://aigproexcellence.com/wp-content/uploads/2025/02/11-1024x753.png"
-                  alt="Cert 1"
-                  style="max-height: 80px"
+                  src="https://z-cdn-media.chatglm.cn/files/c3280351-c382-4616-a901-a6253fad9c9c.jpg?auth_key=1871330049-1e7569a22a4f4cc3a53c8e0ddbdee2b2-0-487d17f4bcb09f9080d666b4407de9cb"
+                  alt="COREN"
                 />
+                <h4>COREN</h4>
+                <p>Council for the Regulation of Engineering in Nigeria</p>
               </div>
-              <div
-                class="card"
-                style="
-                  padding: 20px;
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-                  height: 120px;
-                "
-              >
+              <!-- NSE -->
+              <div class="card accreditation-card">
                 <img
-                  src="https://www.alphamarineservicesltd.com/wp-content/uploads/2025/02/CPD-recognised-1024x585.png"
-                  alt="Cert 2"
-                  style="max-height: 80px"
+                  src="https://z-cdn-media.chatglm.cn/files/c45ef531-6755-4a07-903f-a265ff54ede5.jpg?auth_key=1871330049-5003d6055d264d45b62e2f4fb44b0712-0-5d339f95c246d777010cc9fd05e7fc0f"
+                  alt="NSE"
                 />
+                <h4>NSE</h4>
+                <p>Nigerian Society of Engineers</p>
               </div>
-              <div
-                class="card"
-                style="
-                  padding: 20px;
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-                  height: 120px;
-                "
-              >
+              <!-- PMP -->
+              <div class="card accreditation-card">
                 <img
-                  src="https://aigproexcellence.com/wp-content/uploads/2025/07/Business-Case.png"
-                  alt="Cert 3"
-                  style="max-height: 80px"
+                  src="https://z-cdn-media.chatglm.cn/files/5fa2ef86-dcdc-48cc-9942-5fa03f11c27b.jpg?auth_key=1871330049-f2702c6e736e427a9b5a7ebbf16bc357-0-953f15e8f26a0294313b612cd7295cea"
+                  alt="PMP"
                 />
+                <h4>PMP</h4>
+                <p>Project Management Professional</p>
               </div>
-              <div
-                class="card"
-                style="
-                  padding: 20px;
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-                  height: 120px;
-                "
-              >
+              <!-- NISET -->
+              <div class="card accreditation-card">
                 <img
-                  src="https://aigproexcellence.com/wp-content/uploads/2021/08/2_AIGPE-Yellow-Belt-Digital-Badge_Certifications-1024x753.png"
-                  alt="Cert 4"
-                  style="max-height: 80px"
+                  src="https://z-cdn-media.chatglm.cn/files/d216e5d2-c872-4644-8031-4cd1eb3df01c.jpg?auth_key=1871330049-2c5a06c6e37f40a8bf5e83e3930d62fc-0-e061d53942dd1b8331acaff989a05e8d"
+                  alt="NISET"
                 />
+                <h4>NISET</h4>
+                <p>Nigerian Institution of Engineering Technicians</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- SECTION 9: VENUES -->
+        <section class="section-padding">
+          <div class="container">
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 40px;
+                flex-wrap: wrap;
+              "
+            >
+              <h2>Explore Training Courses by Venue</h2>
+              <a
+                href="#services"
+                onclick="navigateTo('services')"
+                class="cta-button dark"
+                style="font-size: 0.8rem"
+                >View All Courses</a
+              >
+            </div>
+            <div class="grid-3">
+              <div class="venue-card">
+                <img
+                  src="https://australgroup.com/wp-content/uploads/2023/03/dubai-montagem.png"
+                  alt="Lagos"
+                />
+                <div class="venue-overlay">
+                  <h4>Lagos, Nigeria 🇳🇬</h4>
+                  <span class="venue-btn">View PDF</span>
+                </div>
+              </div>
+              <div class="venue-card">
+                <img
+                  src="https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=289531393578772"
+                  alt="Abuja"
+                />
+                <div class="venue-overlay">
+                  <h4>Abuja, Nigeria 🇳🇬</h4>
+                  <span class="venue-btn">View PDF</span>
+                </div>
+              </div>
+              <div class="venue-card">
+                <img
+                  src="https://cms.brightsun.co.uk/uploads/18-11-2024-06-08Dubai-blog.webp"
+                  alt="Accra"
+                />
+                <div class="venue-overlay">
+                  <h4>Accra, Ghana 🇬🇭</h4>
+                  <span class="venue-btn">View PDF</span>
+                </div>
+              </div>
+              <div class="venue-card">
+                <img
+                  src="https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=410687321868077"
+                  alt="Nairobi"
+                />
+                <div class="venue-overlay">
+                  <h4>Nairobi, Kenya 🇰🇪</h4>
+                  <span class="venue-btn">View PDF</span>
+                </div>
+              </div>
+              <div class="venue-card">
+                <img
+                  src="https://aztechtraining.com/wp-content/uploads/2021/04/Doha-Banner.jpg"
+                  alt="Dubai"
+                />
+                <div class="venue-overlay">
+                  <h4>Dubai, UAE 🇦🇪</h4>
+                  <span class="venue-btn">View PDF</span>
+                </div>
+              </div>
+              <div class="venue-card">
+                <img
+                  src="https://content.skyscnr.com/media/5c6c5f06-13b5-4ebd-8c0d-7aaa41ffd7fd/image-22453.jpg"
+                  alt="London"
+                />
+                <div class="venue-overlay">
+                  <h4>London, UK 🇬🇧</h4>
+                  <span class="venue-btn">View PDF</span>
+                </div>
               </div>
             </div>
           </div>
         </section>
       </section>
-
-      <!-- ================== ABOUT PAGE ================== -->
+      <!-- ================== ABOUT PAGE (Retained from HTML2) ================== -->
       <section id="about" class="page-section">
         <section class="section-padding bg-light">
           <div
             class="container text-center"
             style="max-width: 900px; margin: 0 auto"
           >
-            <!-- UPDATED HEADLINE EXACTLY AS REQUESTED -->
             <h1
               style="margin-bottom: 30px; font-size: 2.2rem; line-height: 1.4"
             >
-              Macakod Training Consulting (MTC), a proud subsidiary of Macakod
-              Energy Limited (MEL) – RC 1025569, is positioned at the
-              intersection of technical expertise, leadership development, and
-              practical skills facilitation. Drawing from strong roots in
-              engineering, academia, and industry practice, we translate theory
-              into measurable workforce effectiveness.
+              Macakod Training Consulting (MTC), a proud subsidiary of Macakod Energy 
+              Limited (MEL) – RC 1025569, is positioned at the intersection of technical 
+              expertise, leadership development, and practical skills facilitation. Drawing 
+              from strong roots in engineering, academia, and industry practice, we translate 
+              theory into measurable workforce effectiveness.
             </h1>
             <a href="#trainer-profile" class="cta-button"
               >Meet Our Lead Facilitator</a
             >
           </div>
         </section>
-
         <section class="section-padding">
           <div class="container">
             <h2 class="text-center">Our Commitment: Core Values</h2>
@@ -1170,8 +1479,29 @@
                 </p>
               </div>
             </div>
-
-            <!-- BOLD CORE VALUES LIST -->
+            <div style="margin-top: 60px; text-align: center">
+              <h2 class="text-center" style="margin-bottom: 30px">
+                Our Vision & Mission
+              </h2>
+              <div class="grid-3">
+                <div class="card value-card">
+                  <h3>Vision</h3>
+                  <p>
+                    To be a leading training and consulting firm developing
+                    competent, disciplined, and high-performing individuals and
+                    organizations.
+                  </p>
+                </div>
+                <div class="card value-card">
+                  <h3>Mission</h3>
+                  <p>
+                    To deliver practical, evidence-based training and consulting
+                    solutions that enhance skills, leadership, and
+                    organizational effectiveness.
+                  </p>
+                </div>
+              </div>
+            </div>
             <div style="margin-top: 60px; text-align: center">
               <h3 style="margin-bottom: 30px">Our Core Values</h3>
               <div
@@ -1227,11 +1557,28 @@
                   "
                   >Impact</strong
                 >
+                <strong
+                  style="
+                    background: var(--color-light);
+                    padding: 10px 20px;
+                    border-radius: 30px;
+                    color: var(--color-primary);
+                  "
+                  >Collaboration</strong
+                >
+                <strong
+                  style="
+                    background: var(--color-light);
+                    padding: 10px 20px;
+                    border-radius: 30px;
+                    color: var(--color-primary);
+                  "
+                  >Innovation</strong
+                >
               </div>
             </div>
           </div>
         </section>
-
         <section id="trainer-profile" class="section-padding bg-gray">
           <div class="container">
             <div
@@ -1243,25 +1590,12 @@
               "
             >
               <div style="flex: 1; min-width: 300px">
-                <!-- PROFESSIONAL PORTRAIT PLACEHOLDER -->
-                <img
-                  src="https://picsum.photos/id/403/400/500"
-                  alt="Prince Akorede Joledo"
-                  style="
-                    border-radius: 8px;
-                    box-shadow: var(--shadow-card);
-                    width: 100%;
-                  "
-                />
-              </div>
-              <div style="flex: 1; min-width: 300px">
                 <h2 style="text-align: left">
                   Our Expertise is Your Advantage
                 </h2>
                 <h3 style="margin-bottom: 20px; font-size: 1.4rem">
                   Prince Akorede Joledo
                 </h3>
-                <!-- UPDATED EXPERTISE STATEMENT -->
                 <p
                   style="
                     font-weight: 500;
@@ -1290,8 +1624,7 @@
           </div>
         </section>
       </section>
-
-      <!-- ================== SERVICES PAGE ================== -->
+      <!-- ================== SERVICES PAGE (Retained from HTML2) ================== -->
       <section id="services" class="page-section">
         <section class="section-padding">
           <div class="container text-center">
@@ -1301,7 +1634,6 @@
               corporate teams, institutions, and professionals.
             </p>
           </div>
-
           <div class="container" style="margin-top: 60px">
             <!-- Leadership -->
             <div style="margin-bottom: 60px">
@@ -1349,23 +1681,22 @@
                   <p>
                     Equipping students and early-career professionals with
                     employability skills.
+                    <ul
+                      style="list-style: disc; padding-left: 20px; margin: 20px 0"
+                    >
+                      <li>Career Readiness and Professional Skills Training</li>
+                      <li>Institutional Staff Development Programs</li>
+                    </ul>
+                    <a
+                      href="#contact"
+                      onclick="navigateTo('contact')"
+                      style="color: var(--color-primary); font-weight: 700"
+                      >Inquire Now →</a
+                    >
                   </p>
-                  <ul
-                    style="list-style: disc; padding-left: 20px; margin: 20px 0"
-                  >
-                    <li>Career Readiness and Professional Skills Training</li>
-                    <li>Institutional Staff Development Programs</li>
-                  </ul>
-                  <a
-                    href="#contact"
-                    onclick="navigateTo('contact')"
-                    style="color: var(--color-primary); font-weight: 700"
-                    >Inquire Now →</a
-                  >
                 </div>
               </div>
             </div>
-
             <!-- Technical -->
             <div style="margin-bottom: 60px">
               <h3
@@ -1414,6 +1745,7 @@
                 </div>
               </div>
             </div>
+            <!-- Retreats -->
             <div style="margin-bottom: 60px">
               <h3
                 style="
@@ -1456,7 +1788,7 @@
                 </div>
               </div>
             </div>
-
+            <!-- Project Management -->
             <div style="margin-bottom: 60px">
               <h3
                 style="
@@ -1503,6 +1835,7 @@
             </div>
           </div>
         </section>
+        <!-- Venues Section in Services -->
         <section class="section-padding bg-gray">
           <div class="container">
             <h2 class="text-center" style="margin-bottom: 20px">
@@ -1521,14 +1854,11 @@
               Nigeria, Africa, and internationally – ensuring accessibility and
               world-class facilities.
             </p>
-
             <div class="grid-3">
-              <!-- Reusing category-grid class for consistency -->
-
               <div class="card category-card">
                 <img
                   src="https://australgroup.com/wp-content/uploads/2023/03/dubai-montagem.png"
-                  alt="Dubai skyline – premium training venue"
+                  alt="Dubai skyline"
                 />
                 <div class="category-overlay">
                   <h3>Lagos, Nigeria 🇳🇬</h3>
@@ -1542,11 +1872,11 @@
                   >
                 </div>
               </div>
-
+              <!-- Other venue cards -->
               <div class="card category-card">
                 <img
                   src="https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=289531393578772"
-                  alt="Abuja skyline – professional training venue in Nigeria"
+                  alt="Abuja"
                 />
                 <div class="category-overlay">
                   <h3>Abuja, Nigeria 🇳🇬</h3>
@@ -1560,11 +1890,10 @@
                   >
                 </div>
               </div>
-
               <div class="card category-card">
                 <img
                   src="https://cms.brightsun.co.uk/uploads/18-11-2024-06-08Dubai-blog.webp"
-                  alt="Accra skyline – Ghana training venue"
+                  alt="Accra"
                 />
                 <div class="category-overlay">
                   <h3>Accra, Ghana 🇬🇭</h3>
@@ -1578,11 +1907,10 @@
                   >
                 </div>
               </div>
-
               <div class="card category-card">
                 <img
                   src="https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=410687321868077"
-                  alt="Nairobi skyline – East Africa training venue"
+                  alt="Nairobi"
                 />
                 <div class="category-overlay">
                   <h3>Nairobi, Kenya 🇰🇪</h3>
@@ -1596,11 +1924,10 @@
                   >
                 </div>
               </div>
-
               <div class="card category-card">
                 <img
                   src="https://aztechtraining.com/wp-content/uploads/2021/04/Doha-Banner.jpg"
-                  alt="Dubai skyline – international premium venue"
+                  alt="Dubai"
                 />
                 <div class="category-overlay">
                   <h3>Dubai, UAE 🇦🇪</h3>
@@ -1614,11 +1941,10 @@
                   >
                 </div>
               </div>
-
               <div class="card category-card">
                 <img
                   src="https://content.skyscnr.com/media/5c6c5f06-13b5-4ebd-8c0d-7aaa41ffd7fd/image-22453.jpg"
-                  alt="London skyline – international training venue"
+                  alt="London"
                 />
                 <div class="category-overlay">
                   <h3>London, UK 🇬🇧</h3>
@@ -1636,7 +1962,6 @@
                 </div>
               </div>
             </div>
-
             <div class="text-center" style="margin-top: 40px">
               <a
                 href="#contact"
@@ -1649,8 +1974,7 @@
           </div>
         </section>
       </section>
-
-      <!-- ================== GALLERY PAGE ================== -->
+      <!-- ================== GALLERY PAGE (Retained from HTML2) ================== -->
       <section id="gallery" class="page-section">
         <section class="section-padding bg-light text-center">
           <div class="container">
@@ -1661,7 +1985,6 @@
             </p>
           </div>
         </section>
-
         <section class="section-padding">
           <div class="container">
             <h2 class="text-center">Our Training Categories</h2>
@@ -1716,7 +2039,6 @@
             </div>
           </div>
         </section>
-
         <!-- Thought Leadership -->
         <section class="section-padding bg-gray">
           <div class="container">
@@ -1733,7 +2055,6 @@
                 border-left: 5px solid var(--color-secondary);
               "
             >
-              <!-- REQUESTED TEXT -->
               <p style="font-size: 1.1rem; color: #333">
                 At Macakod Training Consulting (MTC), we believe that
                 sustainable performance is built through intentional structure,
@@ -1743,7 +2064,6 @@
                 remaining grounded in practical application.
               </p>
             </div>
-
             <div class="grid-3" style="margin-top: 40px">
               <div class="card" style="padding: 30px">
                 <h4 style="margin-bottom: 15px">
@@ -1788,8 +2108,7 @@
           </div>
         </section>
       </section>
-
-      <!-- ================== IMPACT PAGE ================== -->
+      <!-- ================== IMPACT PAGE (Retained from HTML2) ================== -->
       <section id="impact" class="page-section">
         <section
           class="section-padding bg-gray text-center"
@@ -1803,7 +2122,6 @@
             </p>
           </div>
         </section>
-
         <section class="section-padding">
           <div class="container">
             <h2 class="text-center">What Our Clients Say</h2>
@@ -1861,8 +2179,7 @@
           </div>
         </section>
       </section>
-
-      <!-- ================== CONTACT PAGE ================== -->
+      <!-- ================== CONTACT PAGE (Retained from HTML2) ================== -->
       <section id="contact" class="page-section">
         <section class="section-padding">
           <div class="container">
@@ -1871,13 +2188,12 @@
               class="text-center"
               style="max-width: 700px; margin: 20px auto 50px"
             >
-              Use's form below to schedule a consultation or request a custom
+              Use the form below to schedule a consultation or request a custom
               proposal.
             </p>
-
             <div class="grid-2">
               <div class="card" style="padding: 40px">
-                <form id="contactForm">
+                <form id="contactFormMain">
                   <input
                     type="text"
                     placeholder="Organization/Company Name"
@@ -1898,60 +2214,34 @@
                     Submit Proposal Request
                   </button>
                 </form>
-                <p id="formResponse" style="margin-top: 15px"></p>
+                <p id="formResponseMain" style="margin-top: 15px"></p>
               </div>
-
               <div class="contact-details">
                 <h3>Direct Contact Information</h3>
                 <p style="margin-bottom: 30px">
                   We are available to discuss your corporate training
                   requirements.
                 </p>
-
                 <!-- Modern Icon: Phone -->
                 <div class="icon-box">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path
-                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81-.7A2 2 0 0 1 22 16.92z"
-                    ></path>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path fill-rule="evenodd" d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z" clip-rule="evenodd" />
                   </svg>
                   <div>
-                    <div style="font-weight: 700">Phone Line 1:</div>
-                    <a href="tel:08133071893" style="color: #555"
-                      >08133071893</a
+                    <div style="font-weight: 700">Mobile Phone 1 & 2:</div>
+                    <a href="tel:+2348130518758" style="color: #555"
+                      >+234 813 051 8758,</a
                     >
-                    <div style="font-weight: 700; margin-top: 5px">
-                      Phone Line 2:
-                    </div>
-                    <a href="tel:+2348000000000" style="color: #555"
-                      >+234 800 000 0000</a
+                    <a href="tel:+2349014629233" style="color: #555"
+                      >+234 901 462 9233</a
                     >
                   </div>
                 </div>
-
                 <!-- Modern Icon: Email -->
                 <div class="icon-box">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path
-                      d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-                    ></path>
-                    <polyline points="22,6 12,13 2,6"></polyline>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z" />
+                    <path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z" />
                   </svg>
                   <div>
                     <div style="font-weight: 700">Email for Inquiries:</div>
@@ -1960,22 +2250,10 @@
                     >
                   </div>
                 </div>
-
                 <!-- Modern Icon: Address -->
                 <div class="icon-box">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path
-                      d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
-                    ></path>
-                    <circle cx="12" cy="10" r="3"></circle>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path fill-rule="evenodd" d="m11.54 22.351.07.04.028.016a.76.76 0 0 0 .723 0l.028-.015.071-.041a16.975 16.975 0 0 0 1.144-.742 19.58 19.58 0 0 0 2.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 0 0-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 0 0 2.682 2.282 16.975 16.975 0 0 0 1.145.742ZM12 13.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" clip-rule="evenodd" />
                   </svg>
                   <div>
                     <div style="font-weight: 700">Mailing Address:</div>
@@ -1990,7 +2268,6 @@
         </section>
       </section>
     </main>
-
     <!-- FOOTER -->
     <footer>
       <div class="container footer-grid">
@@ -2037,7 +2314,6 @@
               >
             </li>
           </ul>
-
           <!-- RESTORED SOCIAL MEDIA LINKS -->
           <div class="social-links">
             <a
@@ -2075,7 +2351,6 @@
             </a>
           </div>
         </div>
-
         <div class="footer-links">
           <h4>MTC Insights</h4>
           <p style="color: #999; font-size: 0.9em; margin-top: 10px">
@@ -2105,8 +2380,7 @@
         </p>
       </div>
     </footer>
-
-    <!-- ARTICLE MODAL (Bridging Technical Skills Gap) -->
+    <!-- ARTICLE MODAL -->
     <div id="articleModal" class="modal">
       <div class="modal-content">
         <span class="close-modal" onclick="closeArticleModal()">&times;</span>
@@ -2132,7 +2406,6 @@
         >
       </div>
     </div>
-
     <!-- PROPOSAL FORM MODAL -->
     <div id="proposalModal" class="modal">
       <div class="modal-content" style="max-width: 600px">
@@ -2155,22 +2428,10 @@
         </form>
       </div>
     </div>
-
-    <!-- RESTORED WHATSAPP FLOAT BUTTON -->
-    <a
-      href="https://wa.me/2348133071893"
-      class="whatsapp-float"
-      target="_blank"
-      title="Chat on WhatsApp"
-    >
-      <span>💬</span>
-    </a>
-
     <!-- JS LOGIC -->
     <script>
       document.getElementById("currentYear").textContent =
         new Date().getFullYear();
-
       // --- SPA NAVIGATION ---
       function navigateTo(pageId) {
         event.preventDefault();
@@ -2186,20 +2447,16 @@
           .forEach((a) => a.classList.remove("active"));
         const activeLink = document.querySelector(`nav a[href="#${pageId}"]`);
         if (activeLink) activeLink.classList.add("active");
-
         // Close mobile menu
         document.querySelector("nav").classList.remove("open");
-
         // Scroll to top
         window.scrollTo(0, 0);
       }
-
       document
         .querySelector(".menu-toggle")
         .addEventListener("click", function () {
           document.querySelector("nav").classList.toggle("open");
         });
-
       // --- MODALS ---
       function openModal() {
         document.getElementById("proposalModal").style.display = "block";
@@ -2213,15 +2470,14 @@
       function closeArticleModal() {
         document.getElementById("articleModal").style.display = "none";
       }
-
       // Close on click outside
       window.onclick = function (event) {
         if (event.target.classList.contains("modal")) {
           event.target.style.display = "none";
         }
       };
-
       // --- FORM HANDLING ---
+      // Home Page Form (in HTML1 Home section)
       document
         .getElementById("contactForm")
         .addEventListener("submit", function (e) {
@@ -2238,7 +2494,25 @@
             btn.style.background = "var(--color-primary)";
           }, 3000);
         });
-
+      // Contact Page Form (HTML2)
+      const contactFormMain = document.getElementById("contactFormMain");
+      if (contactFormMain) {
+        contactFormMain.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const btn = this.querySelector("button");
+          const originalText = btn.innerText;
+          btn.innerText = "Sent Successfully!";
+          btn.style.background = "#28a745";
+          document.getElementById("formResponseMain").innerText =
+            "Thank you. We will contact you within one business day.";
+          this.reset();
+          setTimeout(() => {
+            btn.innerText = originalText;
+            btn.style.background = "var(--color-primary)";
+          }, 3000);
+        });
+      }
+      // Proposal Modal Form
       document
         .getElementById("proposalForm")
         .addEventListener("submit", function (e) {
